@@ -43,6 +43,8 @@ jobs:
         run: |
           npm install
           echo "npm install completed" 
+      - name: Check vite permissions
+        run: ls -l $(npm bin)/vite
       - name: Build
         run: npm run build
       - name: Setup Pages
