@@ -1,5 +1,7 @@
 // THREE
 import * as THREE from 'three';
+// import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 // Create a scene
 const scene = new THREE.Scene();
@@ -11,6 +13,8 @@ camera.position.z = 5;
 // Create a renderer
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
+// adds render in the class 'box'
+// document.querySelector('.box').appendChild(renderer.domElement);
 document.body.appendChild(renderer.domElement);
 
 // Create a cube
@@ -19,6 +23,7 @@ const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
+camera.position.z = 5;
 // Render the scene
 const animate = () => {
     requestAnimationFrame(animate);
