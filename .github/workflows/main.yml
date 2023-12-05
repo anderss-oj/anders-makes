@@ -37,12 +37,17 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          # node-version: 18
+          node-version: 14 #LTS version
           cache: 'npm'
-      - name: Install dependencies
+      # - name: Install dependencies
+      #   run: |
+      #     npm install
+      #     echo "npm install completed"
+      - name: Install dependencies for build
         run: |
-          npm install
-          echo "npm install completed" 
+            npm ci 
+            echo "npm install completed"
       - name: Check vite permissions
         run: ls -l $GITHUB_WORKSPACE/node_modules/.bin/vite
       - name: Build
