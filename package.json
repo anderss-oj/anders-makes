@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "esbuild": "^0.19.8",
+    "jquery": "^3.7.1",
+    "three": "^0.159.0",
+    "tone": "^14.8.49"
+  },
+  "devDependencies": {
+    "vite": "^5.0.4"
+  },
+  "name": "anders-makes",
+  "description": "repo for anders-makes.com\r Wow oh wow, it's a repo!",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Anders Jensen",
+  "license": "ISC"
+}
