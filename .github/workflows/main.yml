@@ -44,9 +44,9 @@ jobs:
       #   run: |
       #     npm install
       #     echo "npm install completed"
-      - name: Install dependencies for build
+      - name: Install dependencies
         run: |
-            npm ci 
+            npm install 
             echo "npm install completed"
       - name: Check vite permissions
         run: ls -l $GITHUB_WORKSPACE/node_modules/.bin/vite
