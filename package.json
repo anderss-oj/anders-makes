@@ -13,7 +13,9 @@
   "version": "1.0.0",
   "main": "script.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "author": "Anders Jensen",
   "license": "ISC"
