@@ -1,4 +1,7 @@
 export default {
     // config options
-    base : '/dist'
-  }
+    base : '/dist',
+    build: {
+      outDir: 'dist',
+    },
+  };
