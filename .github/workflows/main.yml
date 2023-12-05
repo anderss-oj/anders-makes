@@ -40,8 +40,9 @@ jobs:
           node-version: 18
           cache: 'npm'
       - name: Install dependencies
-        # run: npm install
-        run: npm install <YOUR_PACKAGE> --user 0 --unsafe-perm true
+        run: |
+          npm install
+          echo "npm install completed" 
       - name: Build
         run: npm run build
       - name: Setup Pages
