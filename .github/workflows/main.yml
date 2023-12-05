@@ -44,7 +44,7 @@ jobs:
           npm install
           echo "npm install completed" 
       - name: Check vite permissions
-        run: ls -l $(npm bin)/vite
+        run: ls -l $GITHUB_WORKSPACE/node_modules/.bin/vite
       - name: Build
         run: npm run build
       - name: Setup Pages
