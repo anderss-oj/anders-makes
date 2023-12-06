@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "jquery": "^3.7.1",
     "three": "^0.159.0",
     "tone": "^14.8.49"
   },
