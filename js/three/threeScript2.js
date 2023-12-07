@@ -5,7 +5,7 @@ import Stats from 'three/addons/libs/stats.module.js';
 import * as Tone from 'tone';
 import { Ping } from '../tone/toneScript3.js';
 
-const playButton = document.getElementById('play');
+const playButton = document.getElementById('instruction');
 playButton.addEventListener('click', async () => {
     await Tone.start();
     console.log("audio is ready");
@@ -58,7 +58,7 @@ function init() {
     const geometry = new THREE.BoxGeometry();
     // creates the box outline/vectors (not the faces, just the corners)
 
-    for ( let i = 0; i < 50; i ++) {
+    for ( let i = 0; i < 10; i ++) {
         // for loop loops until 2000 shapes made
 
         const object = new THREE.Mesh (geometry, new THREE.MeshLambertMaterial( {color: Math.random() * 0xffffff}));
@@ -78,6 +78,9 @@ function init() {
         object.scale.y = Math.random() + 1;
         object.scale.z = Math.random() + 1;
         // gives object random size. object will be at least 0.5 big
+
+        object.userData = { URL: "pages/page1.html"};
+        // gives every object a url
 
         scene.add (object);
         // adds object to the scene, loop restarts
@@ -101,6 +104,9 @@ function init() {
 
     document.addEventListener( 'pointermove', onPointerMove );
     // listens for pointer to move
+
+    document.addEventListener('click', objectClick, false);
+            // listens for mouse click
 
     window.addEventListener('resize', onWindowResize);
     // resize window listener
@@ -128,6 +134,13 @@ function onPointerMove (event) {
     pointer.x = (event.clientX / window.innerWidth ) *2 -1;
     pointer.y = - (event.clientY / window.innerHeight ) *2 +1;
     // tracks pointer position. '.clientX', '.clientY' return pointer position. not sure why the plus 1, minus 1 times 2?
+}
+
+function objectClick() {
+    if (INTERSECTED) {
+        window.location.href = INTERSECTED.userData.URL;
+        console.log('clicked');
+    }
 }
 
 function animate() {
@@ -171,7 +184,6 @@ function render() {
             // 1. sets the new object as the intersected object. 2. 'currentHex' is assigned value of object's emissive material. 3. sets the emissive material to a new color (white in this case), to indicate it is being hovered over.
             
             Tone.start();
-            console.log("audio is ready");
             new Ping();
             // console.log('intersected, and setHex to white');
         }

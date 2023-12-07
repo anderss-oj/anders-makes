@@ -13,7 +13,7 @@ class Ping {
         
         const synth = new Tone.PolySynth(Tone.Synth).toDestination();
         const now = Tone.now();
-        synth.triggerAttackRelease(["D5"], '16n');
+        synth.triggerAttackRelease(["D3"], '32n');
     }
 
     // add method for changing the note when off the intersect

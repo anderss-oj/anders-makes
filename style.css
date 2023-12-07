@@ -12,6 +12,7 @@
 
 body {
     margin: 0;
+    background-color: rgba(218, 226, 0, 0.02);
 }
 
 .mainHome {
@@ -26,4 +27,10 @@ body {
 h1 {
     font-family: 'Helvetica';
     font-size: 13vh;
+}
+
+#instruction {
+    font-family: 'Helvetica';
+    font-size: 1vh;
+    margin-left: 1vh;
 }
