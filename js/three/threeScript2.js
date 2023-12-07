@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import WebGL from 'three/addons/capabilities/WebGL.js';
 import Stats from 'three/addons/libs/stats.module.js';
 import * as Tone from 'tone';
-import { Ping } from './toneScript3.js';
+import { Ping } from '../tone/toneScript3.js';
 
 const playButton = document.getElementById('play');
 playButton.addEventListener('click', async () => {
