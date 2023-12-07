@@ -2,6 +2,15 @@
 import * as THREE from 'three';
 import WebGL from 'three/addons/capabilities/WebGL.js';
 import Stats from 'three/addons/libs/stats.module.js';
+import * as Tone from 'tone';
+import { Ping } from './toneScript3.js';
+
+const playButton = document.getElementById('play');
+playButton.addEventListener('click', async () => {
+    await Tone.start();
+    console.log("audio is ready");
+    new Ping();
+});
 
 // put everything in this web gl checker
 if ( WebGL.isWebGLAvailable() ) {
@@ -49,7 +58,7 @@ function init() {
     const geometry = new THREE.BoxGeometry();
     // creates the box outline/vectors (not the faces, just the corners)
 
-    for ( let i = 0; i < 10; i ++) {
+    for ( let i = 0; i < 50; i ++) {
         // for loop loops until 2000 shapes made
 
         const object = new THREE.Mesh (geometry, new THREE.MeshLambertMaterial( {color: Math.random() * 0xffffff}));
@@ -98,7 +107,7 @@ function init() {
 }
 
 function onWindowResize() {
-    console.log('tried to resize');
+    // console.log('tried to resize');
     const aspect = window.innerWidth / window.innerHeight;
     // grabs aspect ratio at the moment
 
@@ -150,7 +159,6 @@ function render() {
 
     if ( intersects.length > 0 ) {
         // intersect detection. if there is an element in the array. the intersects variable is an array.
-        console.log('intersected')
         if ( INTERSECTED != intersects[ 0 ].object ) {
             // checks to see if the intersected object is a new one. '[ 0 ]' indicates first element/object in an array
 
@@ -162,7 +170,10 @@ function render() {
             INTERSECTED.material.emissive.setHex( 0xff0000 );
             // 1. sets the new object as the intersected object. 2. 'currentHex' is assigned value of object's emissive material. 3. sets the emissive material to a new color (white in this case), to indicate it is being hovered over.
             
-            console.log('intersected, and setHex to white');
+            Tone.start();
+            console.log("audio is ready");
+            new Ping();
+            // console.log('intersected, and setHex to white');
         }
 
     } else {

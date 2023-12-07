@@ -18,8 +18,8 @@ body {
     position: fixed;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100vw;
+    justify-content:left;
+    width: 60vh;
     height: 100vh;
 }
 
