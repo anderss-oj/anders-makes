@@ -15,6 +15,14 @@ playButton.addEventListener('click', async () => {
 // put everything in this web gl checker
 if ( WebGL.isWebGLAvailable() ) {
 
+let linkDict = {
+    0 : "pages/page1.html",
+    1 : "pages/page2.html",
+    2 : "pages/page3.html",
+    3 : "pages/page4.html"
+};
+// dictionary for my all of my pages
+
 let stats
 // stats is unnecessary, but shows framerate and stuff
     
@@ -58,10 +66,13 @@ function init() {
     const geometry = new THREE.BoxGeometry();
     // creates the box outline/vectors (not the faces, just the corners)
 
-    for ( let i = 0; i < 10; i ++) {
+    for ( let i = 0; i < (Object.keys(linkDict).length); i ++) {
         // for loop loops until 2000 shapes made
 
-        const object = new THREE.Mesh (geometry, new THREE.MeshLambertMaterial( {color: Math.random() * 0xffffff}));
+        const object = new THREE.Mesh (geometry, new THREE.MeshLambertMaterial( 
+            // {color: Math.random() * 0xffffff}
+            {color: 0xff1fff}
+            ));
         // creates mesh with random color, uses 'geometry' const we defined earlier
 
         object.position.x = Math.random() * 40 - 20;
@@ -74,13 +85,16 @@ function init() {
         object.rotation.z = Math.random() * 2 * Math.PI;
         // gives object random rotation coordinates, based on multiple of pi?
 
-        object.scale.x = Math.random() + 1;
-        object.scale.y = Math.random() + 1;
-        object.scale.z = Math.random() + 1;
+        object.scale.x = Math.random() + 1.1;
+        object.scale.y = Math.random() + 1.8;
+        object.scale.z = Math.random() + 2;
         // gives object random size. object will be at least 0.5 big
 
-        object.userData = { URL: "pages/page1.html"};
+        console.log('value of i = ' + i)
+        object.userData = { URL: linkDict[0]};
         // gives every object a url
+
+
 
         scene.add (object);
         // adds object to the scene, loop restarts
