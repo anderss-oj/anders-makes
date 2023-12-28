@@ -91,7 +91,7 @@ function init() {
         // gives object random size. object will be at least 0.5 big
 
         console.log('value of i = ' + i)
-        object.userData = { URL: linkDict[0]};
+        object.userData = { URL: linkDict[i]};
         // gives every object a url
 
 
