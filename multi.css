@@ -10,6 +10,15 @@ body {
     left: 2vw;
 }
 
+#page {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .slow {
     color: black;
     font-size: 10vh;
@@ -32,18 +41,23 @@ body {
     padding: 0;
     animation: pulse 4s 6s infinite alternate;
 }
-#page {
-    width: 100vw;
-    height: 100vh;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .slow.removing {
     opacity: 0;
     transform: scale(0.9);
+}
+
+#mediumRandomCont {
+    transition: opacity 4s ease-in-out, transform 4s ease-in-out;
+}
+
+.showing {
+    color: black;
+    height: 100vh;
+    width: 100vw;
+    animation: pulse 4s 1s infinite alternate;
+    /* font-size: 10vh;
+    text-align: justify; */
 }
 
 @keyframes pulse {
