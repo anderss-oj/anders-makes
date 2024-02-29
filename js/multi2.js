@@ -14,6 +14,15 @@ const cdId = 'cd';
 const chairId = 'chair';
 const workId = 'work';
 const notesId = 'notes';
+const workshopId = 'workshop';
+const barcodeId = 'barcode';
+const decayId = 'decay';
+const interactionId = 'interaction';
+const slowingId = 'slowing';
+const manifestationId = 'manifestation';
+const errorId = 'error';
+const natureId = 'nature';
+const humanMachineId = 'humanMachine';
 
 // img file paths
 const woodBoxPath = '/images/multi/woodBoxes.png';
@@ -22,6 +31,15 @@ const cdPath = '/images/multi/bitRot_cds.png';
 const chairPath = '';
 const workPath = '/images/multi/workPics.gif';
 const notesPath = '/images/multi/notesPics.gif';
+const workshopPath = '/images/multi/rustGif.gif';
+const barcodePath = '/images/multi/barcodePng.png';
+const decayPath = '/images/multi/cycleCircle.png';
+const interactionPath = '/images/interactionScanner.webp';
+const slowingPath = '/images/multi/slowZoneSign.png';
+const manifestationPath = '/images/multi/slowZoneSketchbookScans.gif';
+const errorPath = '';
+const naturePath = '/images/multi/rustDiagram.jpeg';
+const humanMachinePath = '';
 
 document.addEventListener("DOMContentLoaded", function() {
     animationInput.addEventListener("keyup", function(event) {
@@ -100,18 +118,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
         randomImagePlace(workId, 'work', workPath);
         randomImagePlace(notesId, 'notes', notesPath);
+        randomImagePlace(barcodeId, 'barcodes', barcodePath);
+        randomImagePlace(humanMachineId, 'human ~ machine', humanMachinePath);
     }
     function addProcessElements() {
         console.log('process elements added');
-        $('#page').append("<div id='processCont' class='efficiency'></div>")
+        $('#page').append("<div id='processCont' class='process'></div>")
         const processCont = $('#processCont');
         processCont.addClass('showing');
+
+        randomImagePlace(workshopId, 'rust workshop', workshopPath);
+        randomImagePlace(decayId, 'decay', decayPath);
+        randomImagePlace(errorId, 'error as part of the process', errorPath);
+        randomImagePlace(natureId, 'natural process', naturePath);
     }
     function addInstallationElements() {
         console.log('installation elements added');
         $('#page').append("<div id='installationCont' class='installation'></div>")
         const installationCont = $('#installationCont');
         installationCont.addClass('showing');
+
+        randomImagePlace(interactionId, 'interaction / tool interface', interactionPath);
+        randomImagePlace(slowingId, 'slowing', slowingPath);
+        randomImagePlace(manifestationId, 'physical manifestation', manifestationPath);
     }
 
     $(document).ready(function() {
@@ -124,8 +153,12 @@ document.addEventListener("DOMContentLoaded", function() {
         function addRandomElements() {
             var mediumPosition = getRandomPosition('.medium');
             var efficiencyPosition = getRandomPosition('.efficiency');
+            var processPosition = getRandomPosition('.process');
+            var installationPosition = getRandomPosition('.installation');
             var mediumCount = getRandomElementCount();
             var efficiencyCount = getRandomElementCount();
+            var processCount = getRandomElementCount();
+            var installationCount = getRandomElementCount();
 
             // Add medium elements
             for (var i = 0; i < mediumCount; i++) {
@@ -138,6 +171,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 $('.efficiency').append('<div class="efficiency-element">EFFICIENCY</div>');
             }
             $('.efficiency-element').css({'position': 'relative', 'left': efficiencyPosition.x, 'top': efficiencyPosition.y });
+
+            // Add process elements
+            for (var i = 0; i < processCount; i++) {
+                $('.process').append('<div class="process-element">PROCESS</div>');
+            }
+            $('.process-element').css({'position': 'relative', 'left': processPosition.x, 'top': processPosition.y });
+
+            // Add installation elements
+            for (var i = 0; i < installationCount; i++) {
+                $('.installation').append('<div class="installation-element">PRODUCTION</div>');
+            }
+            $('.installation-element').css({'position': 'relative', 'left': installationPosition.x, 'top': installationPosition.y });
         }
 
         // Add random elements initially
@@ -160,6 +205,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const debouncedMouseMove = debounce(function(event) {
             $('.medium').empty();
             $('.efficiency').empty();
+            $('.process').empty();
+            $('.installation').empty();
             addRandomElements();
         }, 17);
         // Adjust delay as needed
