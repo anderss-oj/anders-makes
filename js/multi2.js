@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 // var declaration
 
 const page = document.getElementById('page');
