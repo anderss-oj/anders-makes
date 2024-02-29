@@ -38,7 +38,7 @@ const interactionPath = '/images/multi/interactionScanner.webp';
 const slowingPath = '/images/multi/slowZoneSign.png';
 const manifestationPath = '/images/multi/slowZoneSketchbookScans.gif';
 const errorPath = '';
-const naturePath = '/images/multi/rustDiagram.jpeg';
+const naturePath = '/images/multi/rustDiagram.jpg';
 const humanMachinePath = '';
 
 document.addEventListener("DOMContentLoaded", function() {
