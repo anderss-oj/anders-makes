@@ -4,7 +4,22 @@ const page = document.getElementById('page');
 const slowElements = document.querySelectorAll('.slow');
 const animationInput = document.getElementById('animationInput');
 let pageState = 0;
-const imgWoodBoxes = '/images/multi/woodboxes.png';
+
+// img name id strings
+const woodBoxId = 'woodBox';
+const metalBookId = 'metalBook';
+const cdId = 'cd';
+const chairId = 'chair';
+const workId = 'work';
+const notesId = 'notes';
+
+// img file paths
+const woodBoxPath = '/images/multi/woodBoxes.png';
+const metalBookPath = '/images/multi/bookDuos.gif';
+const cdPath = '/images/multi/bitRot_cds.png';
+const chairPath = '';
+const workPath = '/images/multi/workPics.gif';
+const notesPath = '/images/multi/notesPics.gif';
 
 document.addEventListener("DOMContentLoaded", function() {
     animationInput.addEventListener("keyup", function(event) {
@@ -62,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function() {
         page.innerHTML = '';
         if (page.children.length === 0) { 
             addElementsFunction();
-            console.log(addElementsFunction + ' was triggered here');
         }
     }
     function addMediumElements() {
@@ -70,13 +84,20 @@ document.addEventListener("DOMContentLoaded", function() {
         $('#page').append("<div id='mediumRandomCont' class='medium'></div>")
         const mediumRandomCont = $('#mediumRandomCont');
         mediumRandomCont.addClass('showing');
-        randomImagePlace('woodBlocksImg', 'wood')
+        
+        // image specific functions
+        randomImagePlace(woodBoxId, 'wood', woodBoxPath);
+        randomImagePlace(metalBookId, 'aluminum cover book', metalBookPath);
+        randomImagePlace(cdId, "cd's", cdPath);
     }
     function addEfficiencyElements() {
         console.log('efficiency elements added');
         $('#page').append("<div id='efficiencyCont' class='efficiency'></div>")
         const efficiencyCont = $('#efficiencyCont');
         efficiencyCont.addClass('showing');
+
+        randomImagePlace(workId, 'work', workPath);
+        randomImagePlace(notesId, 'notes', notesPath);
     }
     function addProcessElements() {
         console.log('process elements added');
@@ -151,30 +172,41 @@ document.addEventListener("DOMContentLoaded", function() {
         return { x: positionX, y: positionY };
     }
 
-    // Function to generate random image <div> position + label it
-    function randomImagePlace (imageId, imageName) {
-        console.log (imageId + ' is imageIdJQ value');
+    // Define a function to handle the click event on word blocks
+    function handleWordBlockHover(imageId) {
+        // Attach a mouseenter event listener to show the corresponding image
+        $('#' + imageId).on('mouseenter', function () {
+            // Show the corresponding image by changing its display property
+            $('#' + imageId + 'Img').css('display', 'block');
+            console.log(imageId + ' image should be shown');
+        });
+    
+        // Attach a mouseleave event listener to hide the corresponding image
+        $('#' + imageId).on('mouseleave', function () {
+            // Hide the corresponding image by changing its display property
+            $('#' + imageId + 'Img').css('display', 'none');
+            console.log(imageId + ' image should go away');
+        });
+    }
+
+    // Modify your randomImagePlace function to include the click event handler
+    function randomImagePlace(imageId, imageName, filePath) {
         var imgPosition = getRandomPosition($('#page'));
-        $('#page').append('<div id=' + imageId + '>' + imageName + '</div>');
+        $('#page').append('<div class="word-block" id="' + imageId + '">' + imageName + '</div>');
+        var imageDiv = $('<img>').attr('src', filePath).attr('id', imageId + 'Img').css({
+            'display': 'none',
+            'position': 'absolute', // Position absolutely
+            'max-width': '50vw',   // Add max-width and max-height to restrict size
+            'max-height': '70vh'
+        });
+        $('#page').append(imageDiv);
         
-        // Object to map image IDs to jQuery selectors
-        var imageSelectors = {
-            'woodBlocksImg': '#woodBlocksImg',
-            'metalBookImg': '#metalBookImg',
-            'cdImg': '#cdImg',
-            'chairImg': '#chairImg',
-            'vibratorImg': '#vibratorImg'
-        };
+        // Attach hover event handlers to the word block
+        handleWordBlockHover(imageId);
 
-        // Get the corresponding jQuery selector based on imageId
-        var imageSelector = imageSelectors[imageId];
-
-        // Select the image div using the corresponding selector
-        var imageDiv = $(imageSelector);
-
-        imageDiv.css({'position': 'absolute', 'left': imgPosition.x / 2, 'top': imgPosition.y / 2});
-        imageDiv.addClass('image');
-        console.log (imgPosition.x + 'is x ' + imgPosition.y + 'is y');
+        // Set the position of the word block
+        $('#' + imageId).css({'position': 'absolute', 'left': imgPosition.x / 1.1, 'top': imgPosition.y / 1.1});
+        $('#' + imageId).addClass('word-block');
     }
 });
 
