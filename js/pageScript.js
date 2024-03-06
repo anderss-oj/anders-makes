@@ -1,19 +1,37 @@
 import $ from 'jquery';
 
 $(document).ready(function() {
+    //hover function
+    function stretchOnOff(element) {
+        element.hover(
+            function addStretch() {
+                element.addClass("fontStretch");
+            },
+            function removeStretch() {
+                element.removeClass("fontStretch");
+            }
+        )
+    };
+    
+    //header content hover
     $(".headerContent").hover(
-        function() {
-            // Wrap the content of the hovered element in a container
-            // $(this).wrapInner("<div class='text-container'></div>");
-            // Add the stretching class to the container
-            // $(this).find('.text-container').addClass("fontStretch");
+        function addStretch() {
             $(this).addClass("fontStretch");
         },
-        function() {
-            // Remove the stretching class and unwrap the content
+        function removeStretch() {
             $(this).removeClass("fontStretch");
-            // $(this).find('.text-container').removeClass("fontStretch");
-            // $(this).contents().unwrap();
+        }
+    );
+
+    //work page title hover
+    stretchOnOff($(".titleText"));
+
+    $("a").hover(
+        function() {
+            $(this).css("background-color", "white");
+        },
+        function() {
+            $(this).css("background-color", "");
         }
     );
 });
