@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 $(document).ready(function() {
-    $(".headerContent").hover(
+    $(".titleSection").hover(
         function() {
             // Wrap the content of the hovered element in a container
             // $(this).wrapInner("<div class='text-container'></div>");
