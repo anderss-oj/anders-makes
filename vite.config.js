@@ -7,10 +7,8 @@ export default {
       rollupOptions : {
         input: {
           main : resolve(__dirname, 'index.html'), 
-          page1 : resolve(__dirname, 'pages/page1.html'),
-          page2 : resolve(__dirname, 'pages/page2.html'),
-          page3 : resolve(__dirname, 'pages/page3.html'),
-          page4 : resolve(__dirname, 'pages/page4.html'),
+          profile : resolve(__dirname, 'pages/profile.html'),
+          directory : resolve(__dirname, 'pages/work/directory.html'),
           multi : resolve(__dirname, 'pages/multi.html')
         }
       }, 
@@ -18,7 +16,7 @@ export default {
     },
     // Configuration for handling static assets
   // Define the directories containing static assets to be copied
-  assetsInclude: ['images'],
+  assetsInclude: ['/images'],
   };
 
 // // THIS FROM CHATGPT
