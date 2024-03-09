@@ -40,7 +40,11 @@ h1 {
     font-family: 'Helvetica';
     font-size: 1vh;
     margin-left: 1vh;
-    width: 10vw;
+    width: 20vw;
+    height: auto;
+    -webkit-filter: blur(1px); /* Safari 6.0 - 9.0 */
+    filter: blur(1px);
+    transition: filter 0.2s ease-in-out;
 }
 
 .headerBar {
@@ -128,4 +132,19 @@ h1 {
     font-family: 'Helvetica';
     font-size: 2.5vh;
     font-weight: bold;
+    padding-left: 5%;
+}
+
+.profileSection {
+    position: relative;
+    margin-top: 8vh;
+    text-indent: 10%;
+    line-height: 140%;
+    width: 80vw;
+    height: auto;
+    font-family: 'Helvetica';
+    font-size: 2vh;
+    font-weight: bold;
+    padding-left: 4%;
+    padding-right: 4%;
 }

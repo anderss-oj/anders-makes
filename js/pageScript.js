@@ -34,4 +34,13 @@ $(document).ready(function() {
             $(this).css("background-color", "");
         }
     );
+    
+    $('#instruction').hover(
+        function () {
+            $(this).css("filter", "blur(0px)");
+        },
+        function () {
+            $(this).css("filter", "blur(1px)");
+        }
+    )
 });

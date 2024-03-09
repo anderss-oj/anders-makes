@@ -9,7 +9,16 @@ export default {
           main : resolve(__dirname, 'index.html'), 
           profile : resolve(__dirname, 'pages/profile.html'),
           directory : resolve(__dirname, 'pages/work/directory.html'),
-          multi : resolve(__dirname, 'pages/multi.html')
+          multi : resolve(__dirname, 'pages/multi.html'),
+          manNmachine : resolve(__dirname, 'pages/work/manNmachine.html'),
+          bitRot : resolve(__dirname, 'pages/work/bitRot.html'),
+          terms : resolve(__dirname, 'pages/work/terms.html'),
+          beluchaga : resolve(__dirname, 'pages/work/beluchaga.html'),
+          mashUp : resolve(__dirname, 'pages/work/mashUp.html'),
+          radio : resolve(__dirname, 'pages/work/radio.html'),
+          twoThousandFiveFordTaurus : resolve(__dirname, 'pages/work/2005fordTaurus.html'),
+          fern : resolve(__dirname, 'pages/work/fern.html'),
+          autoVirtual : resolve(__dirname, 'pages/work/autoVirtual.html')
         }
       }, 
       outDir: 'dist',
@@ -18,39 +27,3 @@ export default {
   // Define the directories containing static assets to be copied
   assetsInclude: ['/images'],
   };
-
-// // THIS FROM CHATGPT
-// import { resolve } from 'path';
-
-// export default {
-//   // Base URL for the application
-//   base: '/',
-
-//   build: {
-//     // Specify the directory where the built files will be outputted
-//     outDir: 'dist',
-
-//     // Rollup options to customize the build
-//     rollupOptions: {
-//       // Specify entry points for your application
-//       input: {
-//         main: resolve(__dirname, 'index.html'),
-//         page1: resolve(__dirname, 'pages/page1.html'),
-//         page2: resolve(__dirname, 'pages/page2.html'),
-//         page3: resolve(__dirname, 'pages/page3.html'),
-//         page4: resolve(__dirname, 'pages/page4.html'),
-//         multi: resolve(__dirname, 'pages/multi.html'),
-//       },
-//     },
-//   },
-
-//   // Configuration for handling static assets
-//   // Define the directories containing static assets to be copied
-//   assetsInclude: ['images'],
-
-//   // Alternatively, you can specify individual file extensions
-//   // assetsInclude: ['**/*.png', '**/*.jpg', '**/*.gif'],
-
-//   // You can also specify the maximum size of files to include (optional)
-//   // assetsInlineLimit: 4096, // Adjust as needed
-// };

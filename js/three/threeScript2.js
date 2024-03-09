@@ -16,10 +16,15 @@ playButton.addEventListener('click', async () => {
 if ( WebGL.isWebGLAvailable() ) {
 
 let linkDict = {
-    0 : "pages/page1.html",
-    1 : "pages/page2.html",
-    2 : "pages/page3.html",
-    3 : "pages/page4.html"
+    0 : "pages/work/manNmachine.html",
+    1 : "pages/work/bitRot.html",
+    2 : "pages/work/terms.html",
+    3 : "pages/work/beluchaga.html",
+    4 : "pages/work/mashUp.html",
+    5 : "pages/work/radio.html",
+    6 : "pages/work/fern.html",
+    7 : "pages/work/2005fordTaurus.html",
+    8 : "pages/work/autoVirtual.html"
 };
 // dictionary for my all of my pages
 
