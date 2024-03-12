@@ -25,5 +25,5 @@ export default {
     },
     // Configuration for handling static assets
   // Define the directories containing static assets to be copied
-  assetsInclude: ['/images'],
+  assetsInclude: ['images'],
   };
