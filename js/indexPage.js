@@ -1,9 +1,81 @@
+// PAGE SCRIPT
+import $ from 'jquery';
+
+$(document).ready(function() {
+    //hover function
+    function stretchOnOff(element) {
+        element.hover(
+            function addStretch() {
+                element.addClass("fontStretch");
+            },
+            function removeStretch() {
+                element.removeClass("fontStretch");
+            }
+        )
+    };
+    
+    //header content hover
+    $(".headerContent").hover(
+        function addStretch() {
+            $(this).addClass("fontStretch");
+        },
+        function removeStretch() {
+            $(this).removeClass("fontStretch");
+        }
+    );
+
+    //work page title hover
+    stretchOnOff($(".titleText"));
+
+    $("a").hover(
+        function() {
+            $(this).css("background-color", "white");
+        },
+        function() {
+            $(this).css("background-color", "");
+        }
+    );
+    
+    $('#instruction').hover(
+        function () {
+            $(this).css("filter", "blur(0px)");
+        },
+        function () {
+            $(this).css("filter", "blur(1px)");
+        }
+    )
+});
+
+// TONE STUFF
+
+// making the tone sound
+
+import * as Tone from 'tone';
+
+class Ping {
+    constructor(){
+        // const autoPanner = new Tone.AutoPanner(0.5).toDestination().start();
+        // const fatOsc = new Tone.FatOscillator("Cb1", "sine3", 10).connect(autoPanner).start();
+
+        // const autoFilter = new Tone.AutoFilter({ frequency: 0.05, baseFrequency: 220, octaves: 2 }).toDestination().start();
+        // const noise = new Tone.Noise({ type: "brown", volume: -20 }).connect(autoFilter).start();
+        
+        
+        const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+        const now = Tone.now();
+        synth.triggerAttackRelease(["D3"], '32n');
+    }
+
+    // add method for changing the note when off the intersect
+
+}
+
 // THREE
 import * as THREE from 'three';
 import WebGL from 'three/addons/capabilities/WebGL.js';
 import Stats from 'three/addons/libs/stats.module.js';
-import * as Tone from 'tone';
-import { Ping } from '../tone/toneScript3.js';
+// import * as Tone from 'tone';
+// import { Ping } from '../tone/toneScript3.js';
 
 const playButton = document.getElementById('instruction');
 playButton.addEventListener('click', async () => {
