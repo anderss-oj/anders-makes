@@ -20,12 +20,12 @@ export default {
         fern: resolve(__dirname, 'pages/work/fern.html'),
         autoVirtual: resolve(__dirname, 'pages/work/autoVirtual.html')
       },
-      // output: {
-      //   assetFileNames: 'assets/[name]-[hash][ext]'
-      // }
+      output: {
+        assetFileNames: 'assets/[name]-[hash][ext]'
+      }
     },
     outDir: 'dist',
-    // assetsDir: 'static', // Specify the directory for static assets
+    assetsDir: 'static', // Specify the directory for static assets
   },
   // Configuration for handling static assets
   // Define the directories containing static assets to be copied
