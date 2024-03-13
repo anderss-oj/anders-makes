@@ -25,7 +25,7 @@ export default {
       }
     },
     outDir: 'dist',
-    assetsDir: 'static', // Specify the directory for static assets
+    // assetsDir: 'static', // Specify the directory for static assets
   },
   // Configuration for handling static assets
   // Define the directories containing static assets to be copied
