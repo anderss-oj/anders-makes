@@ -20,9 +20,9 @@ export default {
         fern: resolve(__dirname, 'pages/work/fern.html'),
         autoVirtual: resolve(__dirname, 'pages/work/autoVirtual.html')
       },
-      output: {
-        assetFileNames: 'assets/[name]-[hash][ext]'
-      }
+      // output: {
+      //   assetFileNames: 'assets/[name]-[hash][ext]'
+      // }
     },
     outDir: 'dist',
     assetsDir: 'static', // Specify the directory for static assets
