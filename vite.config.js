@@ -10,7 +10,7 @@ export default {
         profile: resolve(__dirname, 'pages/profile.html'),
         directory: resolve(__dirname, 'pages/work/directory.html'),
         multi: resolve(__dirname, 'pages/multi.html'),
-        manNmachine: resolve(__dirname, 'pages/work/manNmachine.html'),
+        manNmachine: resolve(__dirname, 'pages/work/machineNman.html'),
         bitRot: resolve(__dirname, 'pages/work/bitRot.html'),
         terms: resolve(__dirname, 'pages/work/terms.html'),
         beluchaga: resolve(__dirname, 'pages/work/beluchaga.html'),

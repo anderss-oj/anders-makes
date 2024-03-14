@@ -58,6 +58,11 @@ h1 {
     /* width: 60vw; */
 }
 
+.marginsAdjust{
+    margin-left: 18%;
+    margin-right: 18%;
+}
+
 .headerContent {
     font-family: 'Helvetica';
     font-size: 2.5vh;

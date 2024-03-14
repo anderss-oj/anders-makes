@@ -88,7 +88,7 @@ playButton.addEventListener('click', async () => {
 if ( WebGL.isWebGLAvailable() ) {
 
 let linkDict = {
-    0 : "pages/work/manNmachine.html",
+    0 : "pages/work/machineNman.html",
     1 : "pages/work/bitRot.html",
     2 : "pages/work/terms.html",
     3 : "pages/work/beluchaga.html",
