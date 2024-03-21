@@ -129,7 +129,7 @@ h1 {
 
 .imageInPicture {
     width: 100%;
-    min-height: 10%;
+    min-height: 60%;
 }
 
 .directoryList {
@@ -153,4 +153,39 @@ h1 {
     font-weight: bold;
     padding-left: 4%;
     padding-right: 4%;
+}
+
+@media screen and (max-width: 1000px) {
+    .textAndPictures {
+        flex-direction: column-reverse;
+        margin-bottom: 5%;
+    }
+    .picture {
+        width: auto;
+        height: 80%;
+        padding-left: 20px;
+        padding-right: 20px;
+        /* margin-right: 5%; */
+    }
+    .imageInPicture {
+        min-width: 80%;
+        height: 100%;
+    }
+    .text {
+        width: 100%;
+        height: auto;
+        font-family: 'Helvetica';
+        font-size: 2.5vh;
+        font-weight: bold;
+        /* margin-left: 6%; */
+        padding-top: 10%;
+    }
+    .titleText {
+        transition: transform 0.2s ease;
+        font-size: 10vw;
+    }
+    .titleSection {
+        height: 10%;
+        margin-top: 12%;
+    }
 }
