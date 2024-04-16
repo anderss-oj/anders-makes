@@ -4,7 +4,7 @@ const elementsY= 30;
 var charset = "'';;;::';''::"
 
 function setup() {
-  createCanvas(window.innerWidth, window.innerHeight);
+  createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
@@ -13,6 +13,7 @@ function draw() {
   // fill(0);
   // noStroke();
   
+  textFont('Courier New')
   textAlign(CENTER,CENTER);
   textSize((height/elementsY) *2);
   
