@@ -36,7 +36,7 @@ function changeBackgroundColor() {
         }
         
         // Interpolate the colors based on the progress
-        var currentColor = [];
+        let currentColor = [];
         for (var i = 0; i < 3; i++) {
             currentColor[i] = startColor[i] + (endColor[i] - startColor[i]) * progress;
         }
@@ -46,8 +46,39 @@ function changeBackgroundColor() {
     }, 100); // Update color every 100 milliseconds
 }
 
+function populateField() {
+    var words = ["craft", "the hand", "human", "transparency", "building", 'reduction', 'decentralizing', 'independence', 'personal', 'generative', 'anti', 'retrogressive', 'appreciation', 'quality', 'small']; // Your list of words
+
+    // Loop through the words array
+    for (var i = 0; i < words.length; i++) {
+        var word = words[i];
+        var posX = Math.random() * 80; // Random X position
+        var posY = Math.random() * 80; // Random Y position
+        var $circleDiv = $("<div class='circle'></div>"); // Create a new div for each circle
+        $circleDiv.css({ // Set position
+            top: posY + "%",
+            left: posX + "%"
+        });
+        // Add hover effect with unique word
+        addHoverEffect($circleDiv, word);
+        $(".field").append($circleDiv); // Append the circle div to the field
+    }
+}
+
+function addHoverEffect($element, word) {
+    $element.hover(function() {
+        $(this).css("background-color", "transparent").text(word);
+    }, function() {
+        $(this).css("background-color", 'rgb(' + currentColor.join(',') + ')').text("");
+    });
+}
+
+
+
 $(document).ready(function() {
     setTimeout(changeBackgroundColor, 0);
+
+    populateField();
 
     // Start adding '.' every 2 seconds
     var dotsInterval = setInterval(function() {

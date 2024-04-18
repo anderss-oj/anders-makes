@@ -64,7 +64,6 @@ h1 {
     padding: 0;
     font-size: 16vh;
     font-family: "pragmatapro-fraktur", serif;
-    
     font-weight: 500;
     font-style: normal;
     color: white;
@@ -85,8 +84,8 @@ h2 {
 p {
     margin: 0;
     padding: 0;
-    font-size: 6vh;
-    font-family: "Instrument Serif";
+    font-size: 4vh;
+    font-family: "Instrument-Serif";
     color: white;
 }
 
@@ -104,12 +103,13 @@ p {
 .arrowDown {
     font-size: 5vh;
     font-weight: bold;
-    width: 10%;
-    top: 20%;
+    /* width: 10%; */
+    top: 40%;
     right: 5%;
     writing-mode: vertical-rl; /* Vertical text from bottom to top */
-    position: relative;
-    animation: blinkColor 1s ease-in-out 1s infinite alternate-reverse;
+    position: fixed;
+    /* position: relative; */
+    animation: blinkColor 2s ease-in-out infinite alternate-reverse;
 }
 
 .infoSection {
@@ -124,20 +124,51 @@ p {
 }
 
 .titleText {
-    /* width: 100%; */
     height: 50%;
 }
 
 .subtitle {
     display: flex;
     flex-direction: row;
-    /* width: 100%; */
+    margin-top: 4vh;
 }
 
 .subtitleText {
     position: relative;
-    width: 90%;
+    /* width: 90%; */
 }
+
+.sectionHeader {
+    margin-top: 1%;
+    height: 20%;
+}
+
+.sectionBody {
+    height: 80%;
+}
+
+.field {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid black; Just for visualization */
+}
+
+.circle {
+    height: 25px;
+    width: 25px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    font-size: 4vh;
+    font-family: "Instrument-Serif";
+    color: white;
+}
+
+/* .word {
+    position: absolute;
+} */
 
 .ellipsis {
     font-size: 16vh;
