@@ -60,3 +60,37 @@ body {
     text-align: center;
     font-size: 20px;
 }
+
+.subtitle {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.subtitleText {
+    position: relative;
+    width: 70%;
+}
+
+.arrowDown {
+    font-size: 5vh;
+    font-weight: bold;
+    width: 30%;
+    top: 10%;
+    right: 10%;
+    writing-mode: vertical-rl; /* Vertical text from bottom to top */
+    position: relative;
+    animation: blinkColor 1s ease-in-out 1s infinite alternate-reverse;
+}
+
+@keyframes blinkColor {
+    0% {
+        color: white;
+        opacity: 100%;
+    }
+
+    100% {
+        color: chartreuse;
+        opacity: 100%;
+    }
+}

@@ -51,15 +51,18 @@ $(document).ready(function() {
 
     // Start adding '.' every 2 seconds
     var dotsInterval = setInterval(function() {
-        $('.slowingSlowing').append('.'); // Add a '.' to the div with class 'slowingSlowing'
+        $('.ellipsis').append('.'); // Add a '.' to the div with class 'slowingSlowing'
     }, 2000); // Add '.' every 2 seconds (2000 milliseconds)
     
     // Add a <br> tag after every 10th '.'
     var counter = 0;
     var brInterval = setInterval(function() {
         counter++;
-        if (counter % 15 === 0) {
-            $('.slowingSlowing').append('<br>'); // Add a <br> tag after every 10th '.'
+        if (counter % 3 === 0) {
+            $('.ellipsis').append(' '); // add space after every 3rd '.'
+        }
+        if (counter % 12 === 0) {
+            $('.ellipsis').append('<br>'); // Add a <br> tag after every 12th count
         }
     }, 2000); // Check every 2 seconds (2000 milliseconds)
     
