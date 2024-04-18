@@ -61,7 +61,7 @@ $(document).ready(function() {
         if (counter % 3 === 0) {
             $('.ellipsis').append(' '); // add space after every 3rd '.'
         }
-        if (counter % 12 === 0) {
+        if (counter % 18 === 0) {
             $('.ellipsis').append('<br>'); // Add a <br> tag after every 12th count
         }
     }, 2000); // Check every 2 seconds (2000 milliseconds)

@@ -8,6 +8,22 @@ font-weight: 700;
 font-style: normal;
 */
 
+@font-face {
+    font-family: "Instrument-Serif";
+    src: url("/fonts/instrumentSerif/InstrumentSerif-Regular.woff2") format('woff2');
+}
+
+@font-face {
+    font-family: "Instrument-Serif";
+    src: url("/fonts/instrumentSerif/InstrumentSerif-Italic.woff2") format('woff2');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Redaction_35";
+    src: url("/fonts/redaction/Redaction_35-Bold.woff2") format('woff2');
+}
+
 * {
     box-sizing: border-box;
 }
@@ -25,6 +41,7 @@ body {
     background-color: rgb(145, 145, 154);
     font-family: monospace;
     padding: 0;
+    color: white;
 }
 
 body::-webkit-scrollbar {
@@ -35,19 +52,42 @@ body::-webkit-scrollbar {
 body {
     -ms-overflow-style: none;  /* IE and Edge */
     /* scrollbar-width: none;  Firefox */
+
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    color: white;
-    /* padding: 1vw; */
+/* section {
+
+} */
+
+h1 {
+    margin: 0;
+    padding: 0;
     font-size: 16vh;
     font-family: "pragmatapro-fraktur", serif;
+    
+    font-weight: 500;
+    font-style: normal;
+    color: white;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 10vh;
+    font-family: "Instrument-Serif";
+    /* font-family: serif; */
     font-weight: 400;
     font-style: normal;
+    font-kerning: none;
+    color: white;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    font-size: 6vh;
+    font-family: "Instrument Serif";
+    color: white;
 }
 
 .timer {
@@ -61,26 +101,51 @@ body {
     font-size: 20px;
 }
 
+.arrowDown {
+    font-size: 5vh;
+    font-weight: bold;
+    width: 10%;
+    top: 20%;
+    right: 5%;
+    writing-mode: vertical-rl; /* Vertical text from bottom to top */
+    position: relative;
+    animation: blinkColor 1s ease-in-out 1s infinite alternate-reverse;
+}
+
+.infoSection {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    width: 100vw;
+    height: 100vh;
+    border-bottom: 5px dashed chartreuse;
+    /* margin-bottom: 14vh; */
+}
+
+.titleText {
+    /* width: 100%; */
+    height: 50%;
+}
+
 .subtitle {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .subtitleText {
     position: relative;
-    width: 70%;
+    width: 90%;
 }
 
-.arrowDown {
-    font-size: 5vh;
-    font-weight: bold;
-    width: 30%;
-    top: 10%;
-    right: 10%;
-    writing-mode: vertical-rl; /* Vertical text from bottom to top */
-    position: relative;
-    animation: blinkColor 1s ease-in-out 1s infinite alternate-reverse;
+.ellipsis {
+    font-size: 16vh;
+    font-family: "pragmatapro-fraktur", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    width: 100vw;
 }
 
 @keyframes blinkColor {
