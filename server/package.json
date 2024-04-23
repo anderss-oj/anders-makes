@@ -1,0 +1,14 @@
+{
+    "name": "your-server-app",
+    "version": "1.0.0",
+    "description": "Your server-side application description",
+    "main": "server.mjs",
+    "type": "module",
+    "scripts": {
+      "start": "node server.mjs"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "cors": "^2.8.5"
+    }
+  }
