@@ -11,7 +11,7 @@
       }
     ],
     "routes": [
-      { "src": "/clicks", "dest": "/server/server.mjs" },
+      { "src": "/clicks", "dest": "/server" },
       { "src": "/(.*)", "dest": "/dist/$1" }
     ]
   }
