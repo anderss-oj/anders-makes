@@ -1,7 +1,13 @@
 {
   "version": 2,
+  
   "routes": [
     { "src": "/server/(.*)", "dest": "/server/$1" },
     { "src": "/(.*)", "dest": "/dist/$1" }
-  ]
+  ],
+  "build": {
+    "env": {
+      "VITE_PERMISSIONS": "true"
+    }
+  }
 }
