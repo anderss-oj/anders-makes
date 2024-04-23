@@ -1,13 +1,17 @@
 {
   "version": 2,
-  
+  "builds": [
+    {
+      "src": "server/server.mjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/**",
+      "use": "@vercel/static"
+    }
+  ],
   "routes": [
     { "src": "/server/(.*)", "dest": "/server/$1" },
     { "src": "/(.*)", "dest": "/dist/$1" }
-  ],
-  "build": {
-    "env": {
-      "VITE_PERMISSIONS": "true"
-    }
-  }
+  ]
 }
