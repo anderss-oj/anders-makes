@@ -1,18 +1,17 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "server/server.mjs",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "dist/**",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      { "src": "/clicks", "dest": "/server" },
-      { "src": "/(.*)", "dest": "/dist/$1" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/server.mjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/server/(.*)", "dest": "/server/$1" },
+    { "src": "/(.*)", "dest": "/dist/$1" }
+  ]
+}
