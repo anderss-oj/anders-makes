@@ -10,6 +10,9 @@
       "use": "@vercel/static"
     }
   ],
+
+  "rewrites": [{ "source": "/(.*)", "destination": "/server" }], 
+
   "routes": [
     { "src": "/server/(.*)", "dest": "/server/$1" },
     { "src": "/(.*)", "dest": "/dist/$1" }

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalClicksDisplay = document.getElementById('totalClicks');
 
     clickButton.addEventListener('click', () => {
-        fetch('/server/clicks', { method: 'POST' }) // Update the URL to point to the serverless function
+        fetch('http://localhost:3000/clicks', { method: 'POST' }) // Update the URL to point to the serverless function
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to send click data to server');
