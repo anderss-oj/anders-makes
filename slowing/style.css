@@ -8,7 +8,7 @@ font-weight: 700;
 font-style: normal;
 */
 
-@font-face {
+/* @font-face {
     font-family: "Instrument-Serif";
     src: url("/fonts/instrumentSerif/InstrumentSerif-Regular.woff2") format('woff2');
 }
@@ -17,11 +17,55 @@ font-style: normal;
     font-family: "Instrument-Serif";
     src: url("/fonts/instrumentSerif/InstrumentSerif-Italic.woff2") format('woff2');
     font-style: italic;
+} */
+
+@font-face {
+    font-family: "Redaction";
+    src: url("/fonts/redaction/Redaction-Regular.woff2") format('woff2');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Redaction_10";
+    src: url("/fonts/redaction/Redaction_10-Regular.woff2") format('woff2');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Redaction_20";
+    src: url("/fonts/redaction/Redaction_20-Regular.woff2") format('woff2');
+    font-style: normal;
+    font-weight: normal;
 }
 
 @font-face {
     font-family: "Redaction_35";
-    src: url("/fonts/redaction/Redaction_35-Bold.woff2") format('woff2');
+    src: url("/fonts/redaction/Redaction_35-Regular.woff2") format('woff2');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Redaction_50";
+    src: url("/fonts/redaction/Redaction_50-Regular.woff2") format('woff2');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Redaction_70";
+    src: url("/fonts/redaction/Redaction_70-Regular.woff2") format('woff2');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Redaction_100";
+    src: url("/fonts/redaction/Redaction_100-Regular.woff2") format('woff2');
+    font-style: normal;
+    font-weight: normal;
 }
 
 * {
@@ -63,8 +107,8 @@ h1 {
     margin: 0;
     padding: 0;
     font-size: 16vh;
-    font-family: "pragmatapro-fraktur", serif;
-    font-weight: 500;
+    font-family: "Redaction", serif;
+    font-weight: normal;
     font-style: normal;
     color: white;
 }
@@ -73,9 +117,9 @@ h2 {
     margin: 0;
     padding: 0;
     font-size: 10vh;
-    font-family: "Instrument-Serif";
+    font-family: "Redaction", serif;
     /* font-family: serif; */
-    font-weight: 400;
+    font-weight: normal;
     font-style: normal;
     font-kerning: none;
     color: white;
@@ -85,7 +129,7 @@ p {
     margin: 0;
     padding: 0;
     font-size: 4vh;
-    font-family: "Instrument-Serif";
+    font-family: "Redaction", serif;
     color: white;
 }
 
@@ -177,6 +221,35 @@ p {
     font-style: normal;
     color: white;
     width: 100vw;
+}
+
+.totalClickBox {
+    font-family: 'Redaction';
+    font-size: 16vh;
+}
+
+.redaction1 {
+    font-family: 'Redaction_10';
+}
+
+.redaction2 {
+    font-family: 'Redaction_20';
+}
+
+.redaction3 {
+    font-family: 'Redaction_35';
+}
+
+.redaction4 {
+    font-family: 'Redaction_50';
+}
+
+.redaction5 {
+    font-family: 'Redaction_70';
+}
+
+.redaction6 {
+    font-family: 'Redaction_100';
 }
 
 @keyframes blinkColor {
