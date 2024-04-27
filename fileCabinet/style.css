@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    cursor: context-menu;
 }
 
 img {
@@ -13,9 +14,27 @@ img {
 body {
     margin: 0;
     background-color: rgb(231, 231, 199);
+    overflow: hidden;
 }
 
 a {
     color: black;
 }
 
+.files {
+    margin: 0;
+    font-size: 30pt;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.cabinet {
+    transition: background-color 0.2s ease-in-out;
+    cursor: grab;
+    position: absolute;
+}
+
+.highlight {
+    background-color: rgb(220, 220, 31);
+}
