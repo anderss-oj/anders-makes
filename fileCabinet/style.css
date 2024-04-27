@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+/*.featuredImg {
+    max-width: 100%;
+} */
+
+body {
+    margin: 0;
+    background-color: rgb(231, 231, 199);
+}
+
+a {
+    color: black;
+}
+
