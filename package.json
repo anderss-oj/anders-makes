@@ -2,6 +2,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
+    "html2canvas": "^1.4.1",
     "jquery": "^3.7.1",
     "three": "^0.159.0",
     "tone": "^14.8.49"

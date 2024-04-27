@@ -1,8 +1,13 @@
 import $ from "jquery";
+import html2canvas from 'html2canvas';
 
 document.addEventListener('DOMContentLoaded', () => {
     const clickButton = document.getElementById('clickButton');
-    const totalClicksDisplay = document.getElementById('totalClicks');
+    // const totalClicksDisplay = document.getElementById('totalClicks');
+    const archive = $('#archive');
+    const dayCount = $('#dayCount');
+    const timer = $('#timer');
+    const ellipses = $('#ellipses');
     let totalClicks;
 
     const fetchClickData = () => {
@@ -17,8 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Click data received:', data); // Log the received data
                 totalClicks = data.totalClicks; // Access the totalClicks property
                 if (typeof totalClicks === 'number') {
-                    totalClicksDisplay.textContent = totalClicks; // Update the DOM with the totalClicks value
-                    updateFont(totalClicksDisplay); // Pass the specific element to updateFont
+                    // totalClicksDisplay.textContent = totalClicks; // Update the DOM with the totalClicks value
+                    // Pass the specific element to updateFont
+                    updateFont(archive);
+                    updateFont(dayCount);
+                    updateFont(timer);
+                    updateFont(ellipses);
+
                 } else {
                     console.error('Invalid or missing totalClicks data');
                 }
@@ -55,9 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
             $(element).removeClass('redaction1 redaction2 redaction3 redaction4 redaction6');
             $(element).addClass('redaction5');
         }
-        else if (totalClicks <= 60) {
+        else if (totalClicks >= 60) {
             $(element).removeClass('redaction1 redaction2 redaction3 redaction4 redaction5');
             $(element).addClass('redaction6');
         }
+    }
+
+    function screenShotSend(element) {
+
     }
 });
