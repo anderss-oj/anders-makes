@@ -17,30 +17,25 @@ $(document).ready(function(){
         $(cabinet).click(function(){
             console.log(cabinetClicks + ' after click');
             if (cabinetClicks == 0) {
-                window.open('./fileCabinet/folder.html', '_blank', 'width=1000, height=600, left=500, top=500');
-                window.open('./fileCabinet/folder.html', '_blank', 'width=1000, height=500, left=400, top=400');
-                window.open('./fileCabinet/folder.html', '_blank', 'width=1000, height=400, left=300, top=300');
-                window.open('./fileCabinet/folder.html', '_blank', 'width=1000, height=300, left=200, top=200');
-                window.open('./fileCabinet/folder.html', '_blank', 'width=1000, height=200, left=100, top=100');
-                window.open('./fileCabinet/folder.html', '_blank', 'width=1000, height=100, left=0, top=0');
-                
-                
-                
-                
-
+                window.open('fileCabinet/folder.html', '_blank', 'width=1000, height=600, left=500, top=500');
+                window.open('fileCabinet/folder.html', '_blank', 'width=1000, height=500, left=400, top=400');
+                window.open('fileCabinet/folder.html', '_blank', 'width=1000, height=400, left=300, top=300');
+                window.open('fileCabinet/folder.html', '_blank', 'width=1000, height=300, left=200, top=200');
+                window.open('fileCabinet/folder.html', '_blank', 'width=1000, height=200, left=100, top=100');
+                window.open('fileCabinet/folder.html', '_blank', 'width=1000, height=100, left=0, top=0');
                 // cabinetClicks++;
             }
             else if (cabinetClicks == 1) {
-                window.open('files.html', '_blank', 'popup, width=970, height=400');
+                window.open('files.html', '_blank', 'width=970, height=400');
             }
             else if (cabinetClicks == 2) {
-                window.open('files.html', '_blank', 'popup, width=950, height=950');
-                window.open('files.html', '_blank', 'popup, width=950, height=950');
-                window.open('files.html', '_blank', 'popup, width=950, height=950');
-                window.open('files.html', '_blank', 'popup, width=950, height=950');
-                window.open('files.html', '_blank', 'popup, width=950, height=950');
-                window.open('files.html', '_blank', 'popup, width=950, height=950');
-                window.open('files.html', '_blank', 'popup, width=950, height=950');
+                window.open('files.html', '_blank', 'width=950, height=950');
+                window.open('files.html', '_blank', 'width=950, height=950');
+                window.open('files.html', '_blank', 'width=950, height=950');
+                window.open('files.html', '_blank', 'width=950, height=950');
+                window.open('files.html', '_blank', 'width=950, height=950');
+                window.open('files.html', '_blank', 'width=950, height=950');
+                window.open('files.html', '_blank', 'width=950, height=950');
                 $(cabinet).css({
                     "top": getRandomInt(98) + "%", 
                     "left":getRandomInt(98) + "%"

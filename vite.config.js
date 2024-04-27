@@ -20,7 +20,9 @@ export default {
         radio: resolve(__dirname, 'pages/work/radio.html'),
         twoThousandFiveFordTaurus: resolve(__dirname, 'pages/work/2005fordTaurus.html'),
         fern: resolve(__dirname, 'pages/work/fern.html'),
-        autoVirtual: resolve(__dirname, 'pages/work/autoVirtual.html')
+        autoVirtual: resolve(__dirname, 'pages/work/autoVirtual.html'),
+        folder: resolve(__dirname, 'fileCabinet/folder.html'),
+        files: resolve(__dirname, 'fileCabinet/files.html'),
       },
       // output: {
       //   assetFileNames: 'assets/[name]-[hash][ext]'
