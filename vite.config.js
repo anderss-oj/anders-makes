@@ -23,6 +23,8 @@ export default {
         autoVirtual: resolve(__dirname, 'pages/work/autoVirtual.html'),
         folder: resolve(__dirname, 'fileCabinet/folder.html'),
         files: resolve(__dirname, 'fileCabinet/files.html'),
+        fileData: resolve(__dirname, 'fileCabinet/fileData.html'),
+        dataPoint: resolve(__dirname, 'fileCabinet/dataPoint.html'),
       },
       // output: {
       //   assetFileNames: 'assets/[name]-[hash][ext]'

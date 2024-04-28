@@ -2,20 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>a folder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/data-PduyXx_4.png">
+    <title>data</title>
     <!-- <script type="module" src="files.js"></script> -->
   <script type="module" crossorigin src="/static/jquery-j2bgAS1c.js"></script>
-  <script type="module" crossorigin src="/static/files-qQ7cqUKP.js"></script>
-  <link rel="stylesheet" crossorigin href="/static/files-sdBGKN8d.css">
+  <script type="module" crossorigin src="/static/files-MbE5ZziW.js"></script>
+  <link rel="stylesheet" crossorigin href="/static/files-0JGIVVsL.css">
 </head>
-<body>
+<body style="background-color: rgb(231, 231, 224);">
     <div class="files">
-        <div class="cabinet">a file.</div>
+        <div title="look closer at this file" class="cabinet" style="cursor: zoom-in;">a file.</div>
 </div>
 </body>
 <script>
+    function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
     cabinetClicks = 2;
+    numberFiles = getRandomInteger(40, 90)
+    console.log('numberFiles='+numberFiles)
     console.log(cabinetClicks)
 </script>
 </html>

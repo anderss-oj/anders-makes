@@ -4,10 +4,20 @@ $(document).ready(function(){
     // let cabinetWrapper = '.cabinetWrapper';
     let cabinet = '.cabinet';
 
-    $(cabinet).css({
-        "top": getRandomInt(98) + "%", 
-        "left":getRandomInt(98) + "%"
-    })
+    // $(cabinet).css({
+    //     "top": getRandomInt(98) + "%", 
+    //     "left":getRandomInt(98) + "%"
+    // })
+
+    function openPopup(filePath, left, top) {
+        window.open(filePath, '_blank', `width=70, height=70, left=${left}, top=${top}`);
+    }
+
+    function openPopupsNTimes(filePath, maxLeft, maxTop, n) {
+        for (let i = 0; i < n; i++) {
+            openPopup(filePath, getRandomInt(maxLeft), getRandomInt(maxTop));
+        }
+    }
 
     function cabinetFunctions(cabinet) {
         console.log(cabinetClicks + ' before click');
@@ -17,38 +27,50 @@ $(document).ready(function(){
         $(cabinet).click(function(){
             console.log(cabinetClicks + ' after click');
             if (cabinetClicks == 0) {
-                window.open('fileCabinet/folder.html', '_blank', 'width=1000, height=600, left=500, top=500');
-                window.open('fileCabinet/folder.html', '_blank', 'width=1000, height=500, left=400, top=400');
-                window.open('fileCabinet/folder.html', '_blank', 'width=1000, height=400, left=300, top=300');
-                window.open('fileCabinet/folder.html', '_blank', 'width=1000, height=300, left=200, top=200');
-                window.open('fileCabinet/folder.html', '_blank', 'width=1000, height=200, left=100, top=100');
-                window.open('fileCabinet/folder.html', '_blank', 'width=1000, height=100, left=0, top=0');
+                window.open('fileCabinet/folder.html', '_blank', 'width=400, height=200, left=900, top=500');
+                window.open('fileCabinet/folder.html', '_blank', 'width=400, height=200, left=750, top=400');
+                window.open('fileCabinet/folder.html', '_blank', 'width=400, height=200, left=500, top=300');
+                window.open('fileCabinet/folder.html', '_blank', 'width=400, height=200, left=250, top=200');
+                window.open('fileCabinet/folder.html', '_blank', 'width=400, height=200, left=150, top=100');
+                window.open('fileCabinet/folder.html', '_blank', 'width=400, height=200, left=0, top=50');
                 // cabinetClicks++;
             }
             else if (cabinetClicks == 1) {
-                window.open('files.html', '_blank', 'width=970, height=400');
+                window.open('files.html', '_blank', 'width=300, height=100, left=700, top=300');
+                window.open('files.html', '_blank', 'width=300, height=100, left=600, top=250');
+                window.open('files.html', '_blank', 'width=300, height=100, left=500, top=200');
+                window.open('files.html', '_blank', 'width=300, height=100, left=400, top=150');
+                window.open('files.html', '_blank', 'width=300, height=100, left=300, top=100');
+                window.open('files.html', '_blank', 'width=300, height=100, left=200, top=50');
+
+
             }
-            else if (cabinetClicks == 2) {
-                window.open('files.html', '_blank', 'width=950, height=950');
-                window.open('files.html', '_blank', 'width=950, height=950');
-                window.open('files.html', '_blank', 'width=950, height=950');
-                window.open('files.html', '_blank', 'width=950, height=950');
-                window.open('files.html', '_blank', 'width=950, height=950');
-                window.open('files.html', '_blank', 'width=950, height=950');
-                window.open('files.html', '_blank', 'width=950, height=950');
+            else if (1 < cabinetClicks <= 2) {
+                openPopupsNTimes('fileData.html', 1800, 900, numberFiles); // Opens 'files.html' popup (numberFiles) times with left and top random
+
+                $(cabinet).css({
+                    "top": getRandomInt(98) + "%", 
+                    "left":getRandomInt(98) + "%"
+                })
+                cabinetClicks++;
+            }
+            else if (cabinetClicks == 3) {
+                openPopupsNTimes('dataPoint.html', 2000, 800, 1); // Opens 'dataPoint.html' popup (numberFiles) times with left and top random
+
                 $(cabinet).css({
                     "top": getRandomInt(98) + "%", 
                     "left":getRandomInt(98) + "%"
                 })
             }
-            
         })
     }
 
     cabinetFunctions(cabinet);
 
-    // $(files).click(function(){    
-    // })
+    // hover over data point
+    $('p').hover(function(){
+        $(this).toggleClass('highlight')
+    });
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);

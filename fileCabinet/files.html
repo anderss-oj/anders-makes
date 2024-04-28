@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/fileCabinet/data.png">
     <link rel="stylesheet" href="style.css">
-    <title>a folder</title>
+    <title>data</title>
     <!-- <script type="module" src="files.js"></script> -->
 </head>
-<body>
+<body style="background-color: rgb(231, 231, 224);">
     <div class="files">
-        <div class="cabinet">a file.</div>
+        <div title="look closer at this file" class="cabinet" style="cursor: zoom-in;">a file.</div>
 </div>
 </body>
 <script>
+    function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
     cabinetClicks = 2;
+    numberFiles = getRandomInteger(40, 90)
+    console.log('numberFiles='+numberFiles)
     console.log(cabinetClicks)
 </script>
 <script type="module" src="files.js"></script>
