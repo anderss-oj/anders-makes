@@ -38,3 +38,20 @@ a {
 .highlight {
     background-color: rgb(220, 220, 31);
 }
+
+.binaryContainer {
+    /* cursor: crosshair;  */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:start;
+    height: 100%;
+    width: 100%;
+}
+
+.binary {
+    cursor: not-allowed;
+    text-align: center;
+}

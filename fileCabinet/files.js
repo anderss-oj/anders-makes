@@ -9,23 +9,23 @@ $(document).ready(function(){
     //     "left":getRandomInt(98) + "%"
     // })
 
-    function openPopup(filePath, left, top) {
-        window.open(filePath, '_blank', `width=70, height=70, left=${left}, top=${top}`);
+    function openPopup(filePath, width, height, left, top) {
+        window.open(filePath, '_blank', `width=${width}, height=${height}, left=${left}, top=${top}`);
     }
 
-    function openPopupsNTimes(filePath, maxLeft, maxTop, n) {
+    function openPopupsNTimes(filePath, width, height, maxLeft, maxTop, n) {
         for (let i = 0; i < n; i++) {
-            openPopup(filePath, getRandomInt(maxLeft), getRandomInt(maxTop));
+            openPopup(filePath, width, height, getRandomInt(maxLeft), getRandomInt(maxTop));
         }
     }
 
     function cabinetFunctions(cabinet) {
-        console.log(cabinetClicks + ' before click');
+        // console.log(cabinetClicks + ' before click');
         $(cabinet).hover(function(){
             $(this).toggleClass('highlight')
         })
         $(cabinet).click(function(){
-            console.log(cabinetClicks + ' after click');
+            // console.log(cabinetClicks + ' after click');
             if (cabinetClicks == 0) {
                 window.open('fileCabinet/folder.html', '_blank', 'width=400, height=200, left=900, top=500');
                 window.open('fileCabinet/folder.html', '_blank', 'width=400, height=200, left=750, top=400');
@@ -45,22 +45,16 @@ $(document).ready(function(){
 
 
             }
-            else if (1 < cabinetClicks <= 2) {
-                openPopupsNTimes('fileData.html', 1800, 900, numberFiles); // Opens 'files.html' popup (numberFiles) times with left and top random
+            else if (cabinetClicks == 2) {
+                openPopupsNTimes('fileData.html', 70, 70, 1800, 900, numberFiles); // Opens 'files.html' popup (numberFiles) times with left and top random
 
                 $(cabinet).css({
                     "top": getRandomInt(98) + "%", 
                     "left":getRandomInt(98) + "%"
                 })
-                cabinetClicks++;
             }
             else if (cabinetClicks == 3) {
-                openPopupsNTimes('dataPoint.html', 2000, 800, 1); // Opens 'dataPoint.html' popup (numberFiles) times with left and top random
-
-                $(cabinet).css({
-                    "top": getRandomInt(98) + "%", 
-                    "left":getRandomInt(98) + "%"
-                })
+                openPopupsNTimes('dataPoint.html', 600, 50, 2000, 800, 1); // Opens 'dataPoint.html' popup (numberFiles) times with left and top random
             }
         })
     }

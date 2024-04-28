@@ -11,12 +11,12 @@
 <body style="background-color: rgb(255, 255, 255);
             color: rgb(255, 255, 255);">
     <div class="files">
-        <div title="me" class="cabinet" style="cursor: crosshair; font-family: 'Courier New', Courier, monospace;">
-        <p title="help">01000110 01101001 01110010 01110011 01110100 00111010 00001010</p>
-        <p title="me">01000110 01101001 01110010 01110011 01110100 00111010 00001010</p>
-        <p title="please">01000110 01101001 01110010 01110011 01110100 00111010 00001010</p>
+        <div class="binaryContainer" style="cursor: crosshair; font-family: 'Courier New', Courier, monospace;">
+            <div class="binary" title="help">01000110,01101001,01110010,01110011,01110100,00111010</div>
+            <div class="binary" title="me">01001100,01100001,01110011,01110100,00111010</div>
+            <div class="binary" title="please">01000100,01001111,01000010,00111010</div>
         </div>
-</div>
+    </div>
 </body>
 <style>
     .highlight {
@@ -24,7 +24,7 @@
 }
 </style>
 <script>
-    let numberFiles;
+      
     function getRandomInteger(max) {
         return Math.floor(Math.random() * max);
       }
