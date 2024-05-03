@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3001; // Choose a different port for the WebSoc
 const server = http.createServer();
 const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:5173', 'http://localhost:4173', 'http://anders-makes.com'],  // Update the origin to match your client
+    origin: ['http://localhost:5173', 'http://localhost:4173', 'https://anders-makes.com'],  // Update the origin to match your client
     methods: ['GET', 'POST']
   }
 });
