@@ -11,35 +11,35 @@ const sketch = (p) => {
   let prevDots = []; // Store the previous state of dots
   let prevSymbols = []; // Store the previous state of symbols
 
-  p.preload = () => {
-    const fontPromises = [
-    // Load the font files
-    p.loadFont('/static/Redaction-Regular-xtv2zgsI.otf'),
-    p.loadFont('/static/Redaction10-Regular-_IXBfI7_.otf'),
-    p.loadFont('/static/Redaction20-Regular-zc_tNZRL.otf'),
-    p.loadFont('/static/Redaction35-Regular-hX56aVzi.otf'),
-    p.loadFont('/static/Redaction50-Regular--7hWVfiW.otf'),
-    p.loadFont('/static/Redaction70-Regular-Ka_Pa0q_.otf'),
-    p.loadFont('/static/Redaction100-Regular-fE9WMfZs.otf')
-    ]
-  // const fontPromises = [
-    //   p.loadFont('fonts/redactionOTF/Redaction-Regular.otf'),
-    //   p.loadFont('fonts/redactionOTF/Redaction10-Regular.otf'),
-    //   p.loadFont('fonts/redactionOTF/Redaction20-Regular.otf'),
-    //   p.loadFont('fonts/redactionOTF/Redaction35-Regular.otf'),
-    //   p.loadFont('fonts/redactionOTF/Redaction50-Regular.otf'),
-    //   p.loadFont('fonts/redactionOTF/Redaction70-Regular.otf'),
-    //   p.loadFont('fonts/redactionOTF/Redaction100-Regular.otf')
-    // ];
+  // p.preload = () => {
+  //   const fontPromises = [
+  //   // Load the font files
+  //   p.loadFont('/static/Redaction-Regular-xtv2zgsI.otf'),
+  //   p.loadFont('/static/Redaction10-Regular-_IXBfI7_.otf'),
+  //   p.loadFont('/static/Redaction20-Regular-zc_tNZRL.otf'),
+  //   p.loadFont('/static/Redaction35-Regular-hX56aVzi.otf'),
+  //   p.loadFont('/static/Redaction50-Regular--7hWVfiW.otf'),
+  //   p.loadFont('/static/Redaction70-Regular-Ka_Pa0q_.otf'),
+  //   p.loadFont('/static/Redaction100-Regular-fE9WMfZs.otf')
+  //   ]
+  // // const fontPromises = [
+  //   //   p.loadFont('fonts/redactionOTF/Redaction-Regular.otf'),
+  //   //   p.loadFont('fonts/redactionOTF/Redaction10-Regular.otf'),
+  //   //   p.loadFont('fonts/redactionOTF/Redaction20-Regular.otf'),
+  //   //   p.loadFont('fonts/redactionOTF/Redaction35-Regular.otf'),
+  //   //   p.loadFont('fonts/redactionOTF/Redaction50-Regular.otf'),
+  //   //   p.loadFont('fonts/redactionOTF/Redaction70-Regular.otf'),
+  //   //   p.loadFont('fonts/redactionOTF/Redaction100-Regular.otf')
+  //   // ];
 
-  Promise.all(fontPromises)
-    .then(loadedFonts => {
-      fonts = loadedFonts.filter(font => font !== null);
-    })
-    .catch(error => {
-      console.error('Error loading fonts:', error);
-    });
-  };
+  // Promise.all(fontPromises)
+  //   .then(loadedFonts => {
+  //     fonts = loadedFonts.filter(font => font !== null);
+  //   })
+  //   .catch(error => {
+  //     console.error('Error loading fonts:', error);
+  //   });
+  // };
 
   p.setup = () => {
     let canvas = p.createCanvas(window.innerWidth, window.innerHeight);
@@ -109,9 +109,9 @@ const sketch = (p) => {
       symbol.fontIndex = p.floor(p.map(elapsedSymbolTime % 60000, 0, 60000, 0, fonts.length));
       
           // Set the font based on the updated font index, but only if fonts array is not empty
-    if (fonts.length > 0) {
-      p.textFont(fonts[symbol.fontIndex]);
-    }
+    // if (fonts.length > 0) {
+    //   p.textFont(fonts[symbol.fontIndex]);
+    // }
 
 
       p.push();
