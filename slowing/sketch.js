@@ -13,15 +13,13 @@ const sketch = (p) => {
 
   p.preload = () => {
     // Load the font files
-  const fontPromises = [
-    p.loadFont('./static/Redaction-Regular-xtv2zgsI.otf'),
-    p.loadFont('./static/Redaction10-Regular-_IXBfI7_.otf'),
-    p.loadFont('./static/Redaction20-Regular-zc_tNZRL.otf'),
-    p.loadFont('./static/Redaction35-Regular-hX56aVzi.otf'),
-    p.loadFont('./static/Redaction50-Regular--7hWVfiW.otf'),
-    p.loadFont('./static/Redaction70-Regular-Ka_Pa0q_.otf'),
-    p.loadFont('./static/Redaction100-Regular-fE9WMfZs.otf')
-  ];
+    p.loadFont('/static/Redaction-Regular-xtv2zgsI.otf'),
+    p.loadFont('/static/Redaction10-Regular-_IXBfI7_.otf'),
+    p.loadFont('/static/Redaction20-Regular-zc_tNZRL.otf'),
+    p.loadFont('/static/Redaction35-Regular-hX56aVzi.otf'),
+    p.loadFont('/static/Redaction50-Regular--7hWVfiW.otf'),
+    p.loadFont('/static/Redaction70-Regular-Ka_Pa0q_.otf'),
+    p.loadFont('/static/Redaction100-Regular-fE9WMfZs.otf')
 
   // const fontPromises = [
     //   p.loadFont('fonts/redactionOTF/Redaction-Regular.otf'),
