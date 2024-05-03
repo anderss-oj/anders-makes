@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const back = $('#back');
     const clock = $('#clock');
     const captureBtn = $('#captureBtn');
+    const archiveSoon = $('#archiveSoon');
     let totalClicks;
     let startDate;
 
@@ -47,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     updateFont(back);
                     updateFont(clock);
                     updateFont(captureBtn);
+                    updateFont(archiveSoon);
+
                 } else {
                     console.error('Invalid or missing totalClicks data');
                 }
@@ -92,27 +95,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function updateFont(element) {
-        if (totalClicks <= 10) {
+        if (totalClicks <= 75) {
             $(element).removeClass('redaction2 redaction3 redaction4 redaction5 redaction6');
             $(element).addClass('redaction1');
         }
-        else if (totalClicks <= 20) {
+        else if (totalClicks <= 150) {
             $(element).removeClass('redaction1 redaction3 redaction4 redaction5 redaction6');
             $(element).addClass('redaction2');
         }
-        else if (totalClicks <= 30) {
+        else if (totalClicks <= 225) {
             $(element).removeClass('redaction1 redaction2 redaction4 redaction5 redaction6');
             $(element).addClass('redaction3');
         }
-        else if (totalClicks <= 40) {
+        else if (totalClicks <= 300) {
             $(element).removeClass('redaction1 redaction2 redaction3 redaction5 redaction6');
             $(element).addClass('redaction4');
         }
-        else if (totalClicks <= 50) {
+        else if (totalClicks <= 375) {
             $(element).removeClass('redaction1 redaction2 redaction3 redaction4 redaction6');
             $(element).addClass('redaction5');
         }
-        else if (totalClicks >= 60) {
+        else if (totalClicks >= 450) {
             $(element).removeClass('redaction1 redaction2 redaction3 redaction4 redaction5');
             $(element).addClass('redaction6');
         }

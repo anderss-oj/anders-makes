@@ -76,9 +76,9 @@ const sketch = (p) => {
       // Define the color transition points
       const colorPoints = [
         { time: 0, color: p.color(173, 216, 230) }, // Light blue
-        { time: 5000, color: p.color(105, 105, 105) }, // Dark gray
-        { time: 60000, color: p.color(255, 165, 0) }, // Bright orange
-        { time: 100000, color: p.color(143, 93, 32) } // Darker orange
+        { time: 4000, color: p.color(105, 105, 105) }, // Dark gray
+        { time: 60000, color: p.color(143, 93, 32) }, // Darker orange
+        { time: 100000, color: p.color(255, 165, 0) }, // Bright orange
       ];
 
       // Find the two closest color points based on elapsed time
