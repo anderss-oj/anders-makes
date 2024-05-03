@@ -1,62 +1,64 @@
-// let dots = []; // Array to store information about each dot
-
-// function setup() {
-//   createCanvas(900, 900);
-// }
-
-// function draw() {
-//   background(220);
-//   // Iterate through all dots
-//   for (let dot of dots) {
-//     let elapsedTime = millis() - dot.startTime; // Calculate elapsed time since the dot's start time
-    
-//     // Calculate color based on elapsed time
-//     let lerpedColor = lerpColor(color(255, 0, 0), color(0, 0, 255), map(min(elapsedTime, 60000), 0, 60000, 0, 1));
-//     noStroke();
-//     fill(lerpedColor); // Set fill color
-//     ellipse(dot.x, dot.y, dot.diameter, dot.diameter); // Draw circles with varying sizes and changing colors
-//   }
-// }
-
-// function mouseDragged() {
-//   let startTime = millis(); // Log the time of the click event
-  
-//   // Add new dots to the array
-//   for (let i = 0; i < 5; i++) { // Reduce the number of dots for smoother dragging
-//     let angle = random(TWO_PI); // Random angle within the circle
-//     let radius = sqrt(random(600, 1000)); // Random radius (sqrt of the distance) within the maximum distance
-//     let jitterX = random(-30, 30); // Random jitter for x-axis
-//     let jitterY = random(-30, 30); // Random jitter for y-axis
-//     let diameter = random(2, 4); // Random diameter for each circle
-
-//     let x = mouseX + radius * cos(angle) + jitterX; // Calculate x position with jitterX
-//     let y = mouseY + radius * sin(angle) + jitterY; // Calculate y position with jitterY
-    
-//     dots.push({ x, y, diameter, startTime }); // Add dot information to the array along with its start time
-//   }
-// }
-
 let dots = []; // Array to store information about each dot
+let symbols = []; // Array to store symbols
+let symbolSpeed = 0.03; // Speed at which symbols slide down
+let redaction1P5; // Declare a variable to store the loaded font
+let fonts = []; // Array to store loaded fonts
+
+function preload() {
+  // Load the font file
+  fonts.push(loadFont('/fonts/redactionOTF/Redaction-Regular.otf'));
+  fonts.push(loadFont('/fonts/redactionOTF/Redaction10-Regular.otf'));
+  fonts.push(loadFont('/fonts/redactionOTF/Redaction20-Regular.otf'));
+  fonts.push(loadFont('/fonts/redactionOTF/Redaction35-Regular.otf'));
+  fonts.push(loadFont('/fonts/redactionOTF/Redaction50-Regular.otf'));
+  fonts.push(loadFont('/fonts/redactionOTF/Redaction70-Regular.otf'));
+  fonts.push(loadFont('/fonts/redactionOTF/Redaction100-Bold.otf'));
+}
+
 
 function setup() {
   let canvas = createCanvas(window.innerWidth, window.innerHeight);
   canvas.parent('canvasContainer');
+
+  // textFont(redaction1P5);
 }
 
 function draw() {
-  // background(none);
-  
+  background(145, 145, 154);
+
+  for (let i = symbols.length - 1; i >= 0; i--) {
+    let symbol = symbols[i];
+    let elapsedSymbolTime = millis() - symbol.startTime;
+    let lerpedColor = lerpColor(color(255, 0, 0), color(0, 0, 255), map(min(elapsedSymbolTime, 60000), 0, 60000, 0, 1));
+    textSize(symbol.size);
+    fill(lerpedColor);
+    noStroke();
+
+    // Update the font index based on the elapsed time for the symbol
+    symbol.fontIndex = floor(map(elapsedSymbolTime % 60000, 0, 60000, 0, fonts.length));
+
+    // Set the font based on the updated font index
+    textFont(fonts[symbol.fontIndex]);
+
+    push();
+    translate(symbol.x, symbol.y);
+    rotate(symbol.angle);
+    text(symbol.char, 0, 0);
+    pop();
+
+    symbol.y += symbolSpeed;
+    if (symbol.y > height - 10) {
+      symbols.splice(i, 1);
+    }
+  }
+
   // Iterate through all dots
   for (let dot of dots) {
-    let elapsedTime = millis() - dot.startTime; // Calculate elapsed time since the dot's start time
-    
-    // Calculate color based on elapsed time
-    let lerpedColor = lerpColor(color(255, 0, 0), color(0, 0, 255), map(min(elapsedTime, 120000), 0, 120000, 0, 1));
+    let elapsedTime = millis() - dot.startTime;
+    let lerpedColor = lerpColor(color(255, 0, 0), color(0, 0, 255), map(min(elapsedTime, 60000), 0, 60000, 0, 1));
     noFill();
     strokeWeight(1);
-    stroke(lerpedColor); // Set stroke color
-    
-    // Draw irregular shapes instead of ellipses
+    stroke(lerpedColor);
     let vertices = dot.shape;
     for (let i = 0; i < vertices.length - 1; i++) {
       let currentVertex = vertices[i];
@@ -75,26 +77,35 @@ function mousePressed() {
 }
 
 function createDots() {
-  let startTime = millis(); // Log the time of the click event
-  
-  // Add new dots to the array
-  for (let i = 0; i < 2; i++) { // Reduce the number of dots for smoother dragging
-    let angle = random(TWO_PI); // Random angle within the circle
-    let radius = sqrt(random(600, 1000)); // Random radius (sqrt of the distance) within the maximum distance
-    let jitterX = random(-30, 30); // Random jitter for x-axis
-    let jitterY = random(-30, 30); // Random jitter for y-axis
-    let diameter = random(10, 20); // Random diameter for each dot
-    
-    let x = mouseX + radius * cos(angle) + jitterX; // Calculate x position with jitterX
-    let y = mouseY + radius * sin(angle) + jitterY; // Calculate y position with jitterY
-    
-    let vertices = []; // Array to store irregular shape vertices
-    for (let i = 0; i < 4; i++) {
-      let xOff = random(-diameter / 2, diameter / 2); // Random x offset within half of the diameter
-      let yOff = random(-diameter / 2, diameter / 2); // Random y offset within half of the diameter
+  let startTime = millis();
+  for (let i = 0; i < 1; i++) {
+    let angle = random(TWO_PI);
+    let radius = sqrt(random(600, 1000));
+    let jitterX = random(-30, 30);
+    let jitterY = random(-30, 30);
+    let diameter = random(10, 20);
+    let x = mouseX + radius * cos(angle) + jitterX;
+    let y = mouseY + radius * sin(angle) + jitterY;
+    let vertices = [];
+    for (let i = 0; i < 10; i++) {
+      let xOff = random(-diameter / 2, diameter / 2);
+      let yOff = random(-diameter / 2, diameter / 2);
       vertices.push([x + xOff, y + yOff]);
     }
-    
-    dots.push({ x, y, diameter, startTime, shape: vertices }); // Add dot information to the array along with its start time and shape
+    dots.push({ x, y, diameter, startTime, shape: vertices });
+  }
+}
+
+function keyPressed() {
+  if (key !== ' ' && key !== 'Enter' && key !== 'Tab' && key !== 'Shift' && key !== 'Control' && key !== 'Alt' && key !== 'Meta' && key !== 'Backspace') {
+    let symbolSize = random(10, 30);
+    let symbolColor = color(random(255), random(255), random(255));
+    let symbolX = random(width - symbolSize);
+    let symbolY = random(height - symbolSize);
+    let angle = random(TWO_PI);
+    let symbolStartTime = millis();
+
+    // Add the symbol to the symbols array with the initial font index set to 0
+    symbols.push({ char: key, size: symbolSize, color: symbolColor, x: symbolX, y: symbolY, angle: angle, startTime: symbolStartTime, fontIndex: 0 });
   }
 }

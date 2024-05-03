@@ -10,19 +10,6 @@ app.use(cors());
 
 let clickData = { totalClicks: 0 };
 
-// // Load initial totalClicks from clicks.json file
-// fs.readFile('clicks.json', (err, data) => {
-//     if (err) {
-//         console.error(err);
-//     } else {
-//         try {
-//             clickData = JSON.parse(data);
-//         } catch (error) {
-//             console.error('Error parsing clicks.json:', error);
-//         }
-//     }
-// });
-
 app.get('/clicks', (req, res) => {
     res.json(clickData);
 });

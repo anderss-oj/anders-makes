@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="slowing/style.css">
+    <link rel="stylesheet" href="style.css">
     <title>archive</title>
-    <script type="module" src="clickTracker.js"></script>
+    <script type="module" src="/clickTracker.js"></script>
 </head>
+
 <body>
-    <div class="header">
-        <div class="headerItemWrapper">
-            <div id="ellipses" class="headerItem">
-                slowing... ... ... .. ..  . .
+    <div id="mainDiv">
+        <div class="header">
+            <div class="headerItemWrapper">
+                <div id="back" class="headerItem">
+                    <a href="/slowing.html">back</a>
+                </div>
             </div>
         </div>
-        <div class="headerItemWrapper">
-            <div id="dayCount" class="headerItem">day <span id="dayNumber">1</span></div>
-            <div id="archive" class="headerItem">archive</div>
+        <div class="daySection">
+            <div class="day1">
+                <div class="dayText">day 1</div>
+                <div id="screenshot-container">
+    
+                </div>
+            </div>
         </div>
+        <button id="clickButton">Click me!</button>
     </div>
-    <!-- <div class="totalClickBox">Total Clicks: <span id="totalClicks" class="totalClickBox">0</span></div> -->
-    <button id="clickButton">Click me!</button>
+    
 </body>
+
 </html>

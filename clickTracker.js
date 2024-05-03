@@ -3,11 +3,11 @@ import html2canvas from 'html2canvas';
 
 document.addEventListener('DOMContentLoaded', () => {
     const clickButton = document.getElementById('clickButton');
-    // const totalClicksDisplay = document.getElementById('totalClicks');
     const archive = $('#archive');
     const dayCount = $('#dayCount');
     const timer = $('#timer');
     const ellipses = $('#ellipses');
+    const back = $('#back');
     let totalClicks;
 
     const fetchClickData = () => {
@@ -19,16 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.json();
             })
             .then(data => {
-                console.log('Click data received:', data); // Log the received data
-                totalClicks = data.totalClicks; // Access the totalClicks property
+                console.log('Click data received:', data);
+                totalClicks = data.totalClicks;
                 if (typeof totalClicks === 'number') {
-                    // totalClicksDisplay.textContent = totalClicks; // Update the DOM with the totalClicks value
-                    // Pass the specific element to updateFont
                     updateFont(archive);
                     updateFont(dayCount);
                     updateFont(timer);
                     updateFont(ellipses);
-
+                    updateFont(back);
                 } else {
                     console.error('Invalid or missing totalClicks data');
                 }
@@ -44,8 +42,24 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchClickData();
     });
 
+    const captureBtn = document.getElementById('captureBtn');
+
+    captureBtn.addEventListener('click', () => {
+    html2canvas(document.body)
+        .then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const downloadLink = document.createElement('a');
+        downloadLink.download = 'screenshotNow.png';
+        downloadLink.href = imgData;
+        downloadLink.click();
+        })
+        .catch(error => {
+        console.error('Error capturing screenshot:', error);
+        });
+    });
+
     function updateFont(element) {
-        if (totalClicks <= 10 ) {
+        if (totalClicks <= 10) {
             $(element).removeClass('redaction2 redaction3 redaction4 redaction5 redaction6');
             $(element).addClass('redaction1');
         }
@@ -70,8 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
             $(element).addClass('redaction6');
         }
     }
-
-    function screenShotSend(element) {
-
-    }
+        
 });
+
