@@ -29,7 +29,35 @@ function draw() {
   for (let i = symbols.length - 1; i >= 0; i--) {
     let symbol = symbols[i];
     let elapsedSymbolTime = millis() - symbol.startTime;
-    let lerpedColor = lerpColor(color(255, 0, 0), color(0, 0, 255), map(min(elapsedSymbolTime, 60000), 0, 60000, 0, 1));
+
+    // Define the color transition points
+    const colorPoints = [
+      { time: 0, color: color(173, 216, 230) }, // Light blue
+      { time: 20000, color: color(105, 105, 105) }, // Dark gray
+      { time: 40000, color: color(255, 165, 0) }, // Bright orange
+      { time: 60000, color: color(255, 140, 0) } // Darker orange
+    ];
+
+    // Find the two closest color points based on elapsed time
+    let prevColorPoint, nextColorPoint;
+    for (let j = 0; j < colorPoints.length - 1; j++) {
+      if (elapsedSymbolTime >= colorPoints[j].time && elapsedSymbolTime < colorPoints[j + 1].time) {
+        prevColorPoint = colorPoints[j];
+        nextColorPoint = colorPoints[j + 1];
+        break;
+      }
+    }
+
+    // Lerp between the two closest color points
+    let lerpedColor;
+    if (prevColorPoint && nextColorPoint) {
+      const t = map(elapsedSymbolTime, prevColorPoint.time, nextColorPoint.time, 0, 1);
+      lerpedColor = lerpColor(prevColorPoint.color, nextColorPoint.color, t);
+    } else {
+      // If elapsed time is beyond the last color point, use the last color
+      lerpedColor = colorPoints[colorPoints.length - 1].color;
+    }
+
     textSize(symbol.size);
     fill(lerpedColor);
     noStroke();

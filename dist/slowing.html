@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>slowing...</title>
-  <script type="module" crossorigin src="/static/slowing-zRd-jMNl.js"></script>
+    <title>slowing...</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+    <script src="slowing/sketch.js"></script>
+  <script type="module" crossorigin src="/static/slowing-UjFEd5My.js"></script>
   <link rel="modulepreload" crossorigin href="/static/jquery-j2bgAS1c.js">
-  <link rel="stylesheet" crossorigin href="/static/slowing-QtCkzmT4.css">
+  <link rel="stylesheet" crossorigin href="/static/slowing-j_NIJIny.css">
 </head>
+
 <body>
     <div class="header">
         <div class="headerItemWrapper">
             <div id="ellipses" class="headerItem">
-                slowing... ... ... .. ..  . .
+                slowing... ... ... .. .. . .
             </div>
         </div>
         <div class="headerItemWrapper">
             <div id="dayCount" class="headerItem">day <span id="dayNumber">1</span></div>
-            <div id="archive" class="headerItem">archive</div>
+            <div id="archive" class="headerItem"><a href="slowing/archive.html">archive</a></div>
         </div>
+    </div>
+    <div id="canvasContainer">
+        <!-- <canvas id="p5Canvas"></canvas> -->
     </div>
     <!-- <div class="totalClickBox">Total Clicks: <span id="totalClicks" class="totalClickBox">0</span></div> -->
     <button id="clickButton">Click me!</button>
+    <button id="captureBtn">capture</button>
 </body>
+
 </html>
