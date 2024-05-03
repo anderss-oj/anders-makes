@@ -12,6 +12,7 @@ const sketch = (p) => {
   let prevSymbols = []; // Store the previous state of symbols
 
   p.preload = () => {
+    const fontPromises = [
     // Load the font files
     p.loadFont('/static/Redaction-Regular-xtv2zgsI.otf'),
     p.loadFont('/static/Redaction10-Regular-_IXBfI7_.otf'),
@@ -20,7 +21,7 @@ const sketch = (p) => {
     p.loadFont('/static/Redaction50-Regular--7hWVfiW.otf'),
     p.loadFont('/static/Redaction70-Regular-Ka_Pa0q_.otf'),
     p.loadFont('/static/Redaction100-Regular-fE9WMfZs.otf')
-
+    ]
   // const fontPromises = [
     //   p.loadFont('fonts/redactionOTF/Redaction-Regular.otf'),
     //   p.loadFont('fonts/redactionOTF/Redaction10-Regular.otf'),
