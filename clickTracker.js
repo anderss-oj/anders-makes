@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     updateFont(ellipses);
                     updateFont(back);
                     updateFont(clock);
-                    updateFont(clickButton);
                     updateFont(captureBtn);
                 } else {
                     console.error('Invalid or missing totalClicks data');
@@ -59,9 +58,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fetchClickData();
 
-    clickButton.addEventListener('click', () => {
+    // Add event listener for key presses
+    document.addEventListener('keydown', handleKeyPress);
+
+    // Add event listener for body clicks
+    document.body.addEventListener('click', handleBodyClick);
+
+    function handleKeyPress(event) {
+        // Exclude certain keys (e.g., Shift, Ctrl, Alt, etc.)
+        if (!event.metaKey && !event.ctrlKey && !event.altKey) {
+          fetchClickData();
+        }
+      }
+      
+      function handleBodyClick() {
         fetchClickData();
-    });
+      }
 
     // const captureBtn = document.getElementById('captureBtn');
 
@@ -137,6 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
 
-    // Run the captureScreenshot function every minute
-    setInterval(captureScreenshot, 12000000);
+    // Run the captureScreenshot function every 20 minute
+    setInterval(captureScreenshot, 1200000);
 });
