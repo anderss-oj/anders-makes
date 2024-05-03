@@ -11,6 +11,7 @@ export default {
         directory: resolve(__dirname, 'pages/work/directory.html'),
         multi: resolve(__dirname, 'pages/multi.html'),
         slowing: resolve(__dirname, 'slowing.html'),
+        archive: resolve(__dirname, 'slowing/archive.html'),
         filingCabinet: resolve(__dirname, 'filingCabinet.html'),
         manNmachine: resolve(__dirname, 'pages/work/machineNman.html'),
         bitRot: resolve(__dirname, 'pages/work/bitRot.html'),
