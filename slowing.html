@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="slowing/style.css">
     <title>slowing...</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+    <script src="slowing/sketch.js"></script>
     <script type="module" src="clickTracker.js"></script>
 </head>
+
 <body>
     <div class="header">
         <div class="headerItemWrapper">
             <div id="ellipses" class="headerItem">
-                slowing... ... ... .. ..  . .
+                slowing... ... ... .. .. . .
             </div>
         </div>
         <div class="headerItemWrapper">
@@ -19,7 +25,11 @@
             <div id="archive" class="headerItem">archive</div>
         </div>
     </div>
+    <div id="canvasContainer">
+        <!-- <canvas id="p5Canvas"></canvas> -->
+    </div>
     <!-- <div class="totalClickBox">Total Clicks: <span id="totalClicks" class="totalClickBox">0</span></div> -->
     <button id="clickButton">Click me!</button>
 </body>
+
 </html>

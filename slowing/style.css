@@ -80,6 +80,10 @@ img {
     max-width: 100%;
 } */
 
+canvas {
+    display: block;
+}
+
 body {
     margin: 0;
     background-color: rgb(145, 145, 154);
@@ -90,11 +94,12 @@ body {
 
 body::-webkit-scrollbar {
     display: none;
-  }
-  
+}
+
 /* Hide scrollbar for IE, Edge and Firefox */
 body {
-    -ms-overflow-style: none;  /* IE and Edge */
+    -ms-overflow-style: none;
+    /* IE and Edge */
     /* scrollbar-width: none;  Firefox */
 
 }
@@ -289,4 +294,9 @@ p {
         color: chartreuse;
         opacity: 100%;
     }
+}
+
+.p5Canvas {
+    width: 100%;
+    height: 100%;
 }
