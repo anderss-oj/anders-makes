@@ -1,4 +1,5 @@
 import p5 from 'p5';
+import io from 'socket.io-client';
 
 const sketch = (p) => {
   let dots = []; // Array to store information about each dot
@@ -6,21 +7,54 @@ const sketch = (p) => {
   let symbolSpeed = 0.03; // Speed at which symbols slide down
   let redaction1P5; // Declare a variable to store the loaded font
   let fonts = []; // Array to store loaded fonts
+  let socket; // Socket.IO instance
+  let prevDots = []; // Store the previous state of dots
+  let prevSymbols = []; // Store the previous state of symbols
 
-  p.preload = () => {
-    // Load the font files
-    fonts.push(p.loadFont('/fonts/redactionOTF/Redaction-Regular.otf'));
-    fonts.push(p.loadFont('/fonts/redactionOTF/Redaction10-Regular.otf'));
-    fonts.push(p.loadFont('/fonts/redactionOTF/Redaction20-Regular.otf'));
-    fonts.push(p.loadFont('/fonts/redactionOTF/Redaction35-Regular.otf'));
-    fonts.push(p.loadFont('/fonts/redactionOTF/Redaction50-Regular.otf'));
-    fonts.push(p.loadFont('/fonts/redactionOTF/Redaction70-Regular.otf'));
-    fonts.push(p.loadFont('/fonts/redactionOTF/Redaction100-Bold.otf'));
-  };
+  // p.preload = () => {
+  //   // Load the font files
+  // const fontPromises = [
+  //   p.loadFont('fonts/redactionOTF/Redaction-Regular.otf'),
+  //   p.loadFont('fonts/redactionOTF/Redaction10-Regular.otf'),
+  //   p.loadFont('fonts/redactionOTF/Redaction20-Regular.otf'),
+  //   p.loadFont('fonts/redactionOTF/Redaction35-Regular.otf'),
+  //   p.loadFont('fonts/redactionOTF/Redaction50-Regular.otf'),
+  //   p.loadFont('fonts/redactionOTF/Redaction70-Regular.otf'),
+  //   p.loadFont('fonts/redactionOTF/Redaction100-Regular.otf')
+  // ];
+
+  // Promise.all(fontPromises)
+  //   .then(loadedFonts => {
+  //     fonts = loadedFonts.filter(font => font !== null);
+  //   })
+  //   .catch(error => {
+  //     console.error('Error loading fonts:', error);
+  //   });
+  // };
 
   p.setup = () => {
     let canvas = p.createCanvas(window.innerWidth, window.innerHeight);
     canvas.parent('canvasContainer');
+
+    // Connect to the Socket.IO server
+    socket = io('http://localhost:3001');
+
+    // Handle Socket.IO events
+    socket.on('connect', () => {
+      console.log('Socket.IO connection opened');
+    });
+
+    socket.on('canvasState', (data) => {
+      console.log('Received canvas state:', data);
+
+      // Update the dots and symbols arrays based on the received data
+      dots = data.dots;
+      symbols = data.symbols;
+    });
+
+    socket.on('disconnect', () => {
+      console.log('Socket.IO connection closed');
+    });
   };
 
   p.draw = () => {
@@ -33,9 +67,9 @@ const sketch = (p) => {
       // Define the color transition points
       const colorPoints = [
         { time: 0, color: p.color(173, 216, 230) }, // Light blue
-        { time: 20000, color: p.color(105, 105, 105) }, // Dark gray
-        { time: 40000, color: p.color(255, 165, 0) }, // Bright orange
-        { time: 60000, color: p.color(255, 140, 0) } // Darker orange
+        { time: 5000, color: p.color(105, 105, 105) }, // Dark gray
+        { time: 60000, color: p.color(255, 165, 0) }, // Bright orange
+        { time: 100000, color: p.color(143, 93, 32) } // Darker orange
       ];
 
       // Find the two closest color points based on elapsed time
@@ -64,9 +98,12 @@ const sketch = (p) => {
 
       // Update the font index based on the elapsed time for the symbol
       symbol.fontIndex = p.floor(p.map(elapsedSymbolTime % 60000, 0, 60000, 0, fonts.length));
+      
+          // Set the font based on the updated font index, but only if fonts array is not empty
+    // if (fonts.length > 0) {
+    //   p.textFont(fonts[symbol.fontIndex]);
+    // }
 
-      // Set the font based on the updated font index
-      p.textFont(fonts[symbol.fontIndex]);
 
       p.push();
       p.translate(symbol.x, symbol.y);
@@ -75,7 +112,7 @@ const sketch = (p) => {
       p.pop();
 
       symbol.y += symbolSpeed;
-      if (symbol.y > p.height - 10) {
+      if (symbol.y > p.height + 10) {
         symbols.splice(i, 1);
       }
     }
@@ -83,7 +120,35 @@ const sketch = (p) => {
     // Iterate through all dots
     for (let dot of dots) {
       let elapsedTime = p.millis() - dot.startTime;
-      let lerpedColor = p.lerpColor(p.color(255, 0, 0), p.color(0, 0, 255), p.map(p.min(elapsedTime, 60000), 0, 60000, 0, 1));
+
+      // Define the color transition points for dots
+      const dotColorPoints = [
+        { time: 0, color: p.color(173, 216, 230) }, // Light blue
+        { time: 5000, color: p.color(105, 105, 105) }, // Dark gray
+        { time: 60000, color: p.color(255, 165, 0) }, // Bright orange
+        { time: 100000, color: p.color(143, 93, 32) } // Darker orange
+      ];
+
+      // Find the two closest color points based on elapsed time
+      let prevColorPoint, nextColorPoint;
+      for (let j = 0; j < dotColorPoints.length - 1; j++) {
+        if (elapsedTime >= dotColorPoints[j].time && elapsedTime < dotColorPoints[j + 1].time) {
+          prevColorPoint = dotColorPoints[j];
+          nextColorPoint = dotColorPoints[j + 1];
+          break;
+        }
+      }
+
+      // Lerp between the two closest color points
+      let lerpedColor;
+      if (prevColorPoint && nextColorPoint) {
+        const t = p.map(elapsedTime, prevColorPoint.time, nextColorPoint.time, 0, 1);
+        lerpedColor = p.lerpColor(prevColorPoint.color, nextColorPoint.color, t);
+      } else {
+        // If elapsed time is beyond the last color point, use the last color
+        lerpedColor = dotColorPoints[dotColorPoints.length - 1].color;
+      }
+
       p.noFill();
       p.strokeWeight(1);
       p.stroke(lerpedColor);
@@ -93,6 +158,18 @@ const sketch = (p) => {
         let nextVertex = vertices[i + 1];
         p.line(currentVertex[0], currentVertex[1], nextVertex[0], nextVertex[1]);
       }
+    }
+    // Check if there are changes in the dots or symbols arrays
+    const dotsChanged = !areArraysEqual(dots, prevDots);
+    const symbolsChanged = !areArraysEqual(symbols, prevSymbols);
+
+    if (dotsChanged || symbolsChanged) {
+      const canvasState = { dots, symbols };
+      socket.emit('canvasState', canvasState);
+
+      // Update the previous state
+      prevDots = [...dots];
+      prevSymbols = [...symbols];
     }
   };
 
@@ -140,3 +217,37 @@ const sketch = (p) => {
 };
 
 new p5(sketch);
+
+// Helper function to compare arrays
+function areArraysEqual(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (!isObjectEqual(arr1[i], arr2[i])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// Helper function to compare objects
+function isObjectEqual(obj1, obj2) {
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  for (const key of keys1) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
