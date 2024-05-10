@@ -191,82 +191,6 @@ a {
     color: white;
 }
 
-/* .arrowDown {
-    font-size: 5vh;
-    font-weight: bold;
-    top: 40%;
-    right: 5%;
-    writing-mode: vertical-rl; 
-    position: fixed;
-    animation: blinkColor 2s ease-in-out infinite alternate-reverse;
-}
-
-.infoSection {
-   display: flex;
-    flex-direction: column;
-    padding-left: 1vw;
-    padding-right: 1vw;
-    width: 100vw;
-    height: 100vh;
-    border-bottom: 5px dashed chartreuse;
-}
-
-.titleText {
-    height: 50%;
-}
-
-.subtitle {
-    display: flex;
-    flex-direction: row;
-    margin-top: 4vh;
-} */
-
-/* .subtitleText {
-    position: relative;
-    width: 90%;
-} */
-
-/* .sectionHeader {
-    margin-top: 1%;
-    height: 20%;
-}
-
-.sectionBody {
-    height: 80%;
-} */
-
-/* .field {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border: 1px solid black; Just for visualization
-} /*
-
-/* .circle {
-    height: 25px;
-    width: 25px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 50%;
-    position: absolute;
-    text-align: center;
-    font-size: 4vh;
-    font-family: "Instrument-Serif";
-    color: white;
-} */
-
-/* .word {
-    position: absolute;
-} */
-
-/* .ellipsis {
-    font-size: 16vh;
-    font-family: "pragmatapro-fraktur", serif;
-    font-weight: 400;
-    font-style: normal;
-    color: white;
-    width: 100vw;
-} */
-
 .header {
     position: fixed;
     width: 100vw;
@@ -331,27 +255,36 @@ a {
 
 .days {
     width: 100%;
-    height: 100%;
+    height: 90vh;
     display: flex;
     flex-direction: column;
-    margin-left: 2vw;
-    margin-right: 2vw;
+    /* margin-left: 2vw; */
+    /* margin-right: 2vw; */
     margin-top: 10vh;
     font-size: 5vh;
     font-family: "Redaction", serif;
+    align-items: center;
+    /* justify-content: center; */
+}
+.dayText {
+    margin-left: 4vw;
+    margin-bottom: 4vh;
 }
 
-/* #clickButton {
-    position: fixed;
-    bottom: 1vh;
-    left: 1vh;
-} */
-
-/* #captureBtn {
-    position: fixed;
-    bottom: 1vh;
-    right: 1vh;
-} */
+.screenshot-container {
+    display: flex;
+    flex-direction: row;
+    /* max-height: 50%; */
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.screenshot {
+    display: block;
+    max-width: 70%;
+    align-self: start;
+    border:3px white solid;
+}
 
 .totalClickBox {
     font-family: 'Redaction';
@@ -402,4 +335,6 @@ a {
 #mainDiv {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
