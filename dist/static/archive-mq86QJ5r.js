@@ -1,0 +1,1 @@
+import{$ as o}from"./jquery-evpGHFvf.js";import"./clickTracker-QESnrV1b.js";o(document).ready(function(){const t="#aboutHeader",a="aboutHovered";function n(r,e){o(r).hover(function(){o(this).addClass(e)},function(){o(this).removeClass(e)})}n(t,a)});

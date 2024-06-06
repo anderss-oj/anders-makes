@@ -8,6 +8,7 @@ export default {
       input: {
         main: resolve(__dirname, 'index.html'),
         profile: resolve(__dirname, 'pages/profile.html'),
+        contact: resolve(__dirname, 'pages/contact.html'),
         directory: resolve(__dirname, 'pages/work/directory.html'),
         multi: resolve(__dirname, 'pages/multi.html'),
         slowing: resolve(__dirname, 'slowing.html'),

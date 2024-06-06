@@ -216,6 +216,32 @@ a {
     font-family: "Redaction", serif;
 }
 
+@keyframes aboutHover {
+    0% {
+    color: chartreuse;
+    opacity: 100%;
+}
+
+100% {
+    color: rgb(173, 216, 230);
+    opacity: 100%;
+}
+
+}
+
+#aboutHeader {
+    color: chartreuse;
+}
+
+.aboutHovered {
+    animation: aboutHover 1s infinite alternate ease-in-out;
+}
+
+#archiveHeader {
+    color: rgb(116, 71, 16);
+}
+
+
 .footer {
     position: fixed;
     bottom: 0;
@@ -255,20 +281,22 @@ a {
 
 .days {
     width: 100%;
-    height: 90vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     /* margin-left: 2vw; */
     /* margin-right: 2vw; */
     margin-top: 10vh;
+    margin-bottom: 3vh;
     font-size: 5vh;
     font-family: "Redaction", serif;
     align-items: center;
     /* justify-content: center; */
 }
+
 .dayText {
     margin-left: 4vw;
-    margin-bottom: 4vh;
+    margin-bottom: 2vh;
 }
 
 .screenshot-container {

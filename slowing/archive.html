@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>archive</title>
+    <title>archive + about</title>
     <script type="module" src="/clickTracker.js"></script>
 </head>
 
@@ -18,33 +18,55 @@
                 </div>
             </div>
             <div class="headerItemWrapper">
-                <div id="archiveSoon" class="headerItem">
+                <div id="aboutHeader" class="headerItem">
+                    about
+                </div>
+            </div>
+            <div class="headerItemWrapper">
+                <div id="archiveHeader" class="headerItem">
                     archive
                 </div>
             </div>
         </div>
         <div class="days">
-            <div class="day1">
+            <div id="day1">
                 <div class="dayText">5.03.24</div>
                 <div class="screenshot-container">
                     <img class="screenshot" src="/images/slowing/day1.gif">
-                    <!-- <img class="screenshot" src="/images/slowing/screenshotNow-(11).PNG"> -->
                 </div>
-                <!-- <div class="screenshot-container">
-                    <img class="screenshot" src="/images/slowing/screenshotNow-(5).PNG">
-                    <img class="screenshot" src="/images/slowing/screenshotNow-(14).PNG">
-                </div> -->
             </div>
-            <!-- <div class="day2">
-                <div class="dayText">day 2</div>
+            <div id="day7">
+                <div class="dayText">5.10.24</div>
                 <div class="screenshot-container">
-                    <img src="/images/slowing/screenshotNow-(5).PNG">
+                    <img class="screenshot" src="/images/slowing/day7.gif">
                 </div>
-            </div> -->
+            </div>
         </div>
         <!-- <button id="clickButton">Click me!</button> -->
     </div>
     
 </body>
+
+<script type="module">
+    import $ from 'jquery';
+
+$(document).ready(function() {
+    const aboutHeader = '#aboutHeader';
+    const aboutHovered = 'aboutHovered'
+
+    function hoverClassChange(element, newState) {
+        $(element).hover(
+            function(){
+                $(this).addClass(newState);
+            },
+            function(){
+                $(this).removeClass(newState);
+            }
+        )
+    }
+
+    hoverClassChange(aboutHeader, aboutHovered);
+});
+</script>
 
 </html>
