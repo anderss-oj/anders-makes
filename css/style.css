@@ -155,6 +155,10 @@ h1 {
     padding-right: 4%;
 }
 
+.email {
+    margin-bottom: 1vh;
+}
+
 @media screen and (max-width: 1000px) {
     .textAndPictures {
         flex-direction: column-reverse;
