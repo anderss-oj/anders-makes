@@ -141,18 +141,33 @@ h1 {
     padding-left: 5%;
 }
 
+.profileMain {
+    display: flex;
+    margin-top: 8vh;
+    padding-left: 4%;
+    padding-right: 4%;
+}
 .profileSection {
     position: relative;
-    margin-top: 8vh;
     text-indent: 10%;
     line-height: 120%;
-    width: 80vw;
+    width: 50%;
     height: auto;
     font-family: 'Helvetica';
     font-size: 3vh;
     font-weight: bold;
-    padding-left: 4%;
     padding-right: 4%;
+}
+
+.profilePicture {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profilePicture {
+    max-width: 100%;
 }
 
 .email {
@@ -191,5 +206,32 @@ h1 {
     .titleSection {
         height: 10%;
         margin-top: 12%;
+    }
+    .profileMain {
+        display: flex;
+        flex-direction: column;
+        margin-top: 8vh;
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+    .profileSection {
+        position: relative;
+        text-indent: 10%;
+        line-height: 120%;
+        width: auto;
+        height: 50%;
+        font-family: 'Helvetica';
+        font-size: 3vh;
+        font-weight: bold;
+        padding-right: 4%;
+        padding-bottom: 4%;
+    }
+    
+    .profilePicture {
+        height: 50%;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
