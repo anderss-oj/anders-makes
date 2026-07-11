@@ -110,6 +110,7 @@ h1 {
 .textAndPictures {
     display: flex;
     height: 90%;
+    padding-bottom: 5%;
 }
 
 .text {
@@ -129,7 +130,7 @@ h1 {
 
 .imageInPicture {
     width: 100%;
-    min-height: 60%;
+    min-block-size: auto;
 }
 
 .directoryList {
