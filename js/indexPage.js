@@ -97,7 +97,8 @@ let linkDict = {
     6 : "pages/work/fern.html",
     7 : "pages/work/2005fordTaurus.html",
     8 : "pages/work/autoVirtual.html",
-    9 : "pages/work/slowing.html"
+    9 : "pages/work/slowing.html",
+    10 : "pages/work/m.c.Dean.html"
 };
 // dictionary for my all of my pages
 

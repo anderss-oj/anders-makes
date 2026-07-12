@@ -18,7 +18,8 @@
   "main": "script.js",
   "scripts": {
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev": "vite --host --open"
   },
   "author": "Anders Jensen",
   "license": "ISC"

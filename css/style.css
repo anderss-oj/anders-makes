@@ -175,6 +175,10 @@ h1 {
     margin-bottom: 1vh;
 }
 
+.imageCarousel {
+    transition: transform 0.2s ease;
+}
+
 @media screen and (max-width: 1000px) {
     .textAndPictures {
         flex-direction: column-reverse;

@@ -14,6 +14,7 @@ export default {
         slowing: resolve(__dirname, 'slowing.html'),
         archive: resolve(__dirname, 'slowing/archive.html'),
         filingCabinet: resolve(__dirname, 'filingCabinet.html'),
+        mcdean: resolve(__dirname, 'pages/work/m.c.Dean.html'),
         manNmachine: resolve(__dirname, 'pages/work/machineNman.html'),
         slowing_archive: resolve(__dirname, 'pages/work/slowing.html'),
         bitRot: resolve(__dirname, 'pages/work/bitRot.html'),
