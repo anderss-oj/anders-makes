@@ -114,7 +114,7 @@ const textureDict = {
     7: { videoSrc: new URL('../images/documentationPics/2005fordTaurus.webm', import.meta.url).href, imageSrc: new URL('../images/documentationPics/2005fordTaurus.gif', import.meta.url).href },
     8: { videoSrc: new URL('../images/documentationPics/autoVirtual.webm', import.meta.url).href, imageSrc: new URL('../images/documentationPics/autoVirtual.gif', import.meta.url).href },
     9: { videoSrc: new URL('../images/documentationPics/slowingArchive.webm', import.meta.url).href, imageSrc: new URL('../images/documentationPics/slowingArchive.gif', import.meta.url).href },
-    10: { videoSrc: new URL('../images/documentationPics/slowingSculpture.webm', import.meta.url).href, imageSrc: new URL('../images/documentationPics/slowingSculpture.gif', import.meta.url).href }
+    10: { videoSrc: new URL('../images/documentationPics/MCD-alltogether-small.webm', import.meta.url).href, imageSrc: new URL('../images/documentationPics/MCD1-social.gif', import.meta.url).href }
 };
 // Dictionary for all of the project page links that each object can navigate to.
 
