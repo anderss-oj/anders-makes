@@ -245,7 +245,11 @@ function init() {
         object.scale.y = (Math.random() + 4) * mobileScaleBoost;
         object.scale.z = (Math.random() + 5) * mobileScaleBoost;
         // gives object random size. object will be at least 0.5 big
-
+        if (i==10) {
+            object.scale.x = (Math.random() + 10) * mobileScaleBoost;
+            object.scale.y = (Math.random() + 10) * mobileScaleBoost;
+            object.scale.z = (Math.random() + 10) * mobileScaleBoost;    
+        };
         // Store the destination URL on the object so it can be opened when clicked.
         object.userData = { URL: linkDict[i]};
 

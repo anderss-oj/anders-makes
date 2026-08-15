@@ -52,23 +52,23 @@ h1 {
     top: 1vh;
     left: 1vw;
     display: flex;
-    align-items: left;
+    justify-content: left;
     z-index: 999;
     margin-top: 1vh;
-    /* width: 60vw; */
+    width: 20vw;
 }
 
-.marginsAdjust{
+/* .marginsAdjust{
     margin-left: 18%;
     margin-right: 18%;
-}
+} */
 
 .headerContent {
     font-family: 'Helvetica';
     font-size: 3vh;
     font-weight: bold;
     padding-left: 4%;
-    padding-right: 4%;
+    padding-right: 10%;
     transition: transform 0.2s ease;
     height: auto;
 }
